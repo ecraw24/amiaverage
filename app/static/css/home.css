@@ -1,11 +1,11 @@
 body {
-	background-color: 264653;
+	background-color: #264653;
 }
 #FeaturedCategories {
 	border: 1px solid black;
 	float: left;
 	width: 15%;
-	background-color: teal;
+	background-color: #2A9D8F;
 	text-align: center;
 	padding: 10px 20px;
 }
@@ -14,12 +14,12 @@ body {
 	border: 1px solid black;
 }
 #ListHeader {
-	background-color: orange;
+	background-color: #F4A261;
 	margin: 10px 20px 5px 20px ;
 }
 #ListItem {
 	margin: 4px;
-	background-color: yellow;
+	background-color: #E9C46A;
 }
 #TopText {
 	color: white;
@@ -28,7 +28,7 @@ body {
 	text-align: center;
 }
 #MainText {
-	color: orange;
+	color: #F4A261;
 	margin-top: 3%;
 	text-align: center;
 	margin-right: 14%;
@@ -43,7 +43,7 @@ body {
 	
 }
 #LoginButton {
-	background-color: yellow;
+	background-color: #E9C46A;
 	float: right;
 	margin-right: 5%;
 	border: solid black 3px;
@@ -54,17 +54,17 @@ body {
 	margin-right: 5%;
 	margin-bottom: 3%;
 	text-align: center;
-	background-color: teal;
+	background-color: #2A9D8F;
 	padding: 9px;
 	border: solid black 1px;
 }
 #SugBox {
-	background-color: orange;
+	background-color: #F4A261;
 	padding: 10px;
 	border: solid black 1px;
 }
 #ClickBox {
-	background-color: yellow;
+	background-color: #E9C46A;
 	border: solid black 1px;
 	
 }

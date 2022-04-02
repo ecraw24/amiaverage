@@ -1,0 +1,23 @@
+#navigation {
+    border: 1px solid black;
+	float: left;
+	width: 15%;
+	background-color: teal;
+	text-align: center;
+    margin-left: 5px;
+	padding: 10px 20px;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+h2 {
+    font-size:  20px;
+    color: white;
+}
+
+p {
+    font-size: 20px;
+    color: black;
+}
