@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<!--For more info on how to actually collect user input, got to https://www.w3schools.com/html/html_forms.asp 
+and then look at how to use php language-->
+
+        <head>
+                <title> AmIAverage? </title>
+		<script type = "text/JavaScript">
+         		function LoginError() {
+            			alert("Invalid username and password");
+        		}
+      		</script>
+        </head>
+
+        <body style="background-color: #264653;">
+
+		<div style="padding 5px; border: 2px solid black; background-color: #F4A261;">
+		<h2>Login:</h2>
+		</div>
+
+		<div style="border: 2px solid black; background-color: #E9C46A; padding: 10px;">
+		<form>
+			<label for="username">Username:</label><br>
+			<input type="text" id="username" name="username"><br>
+			<label for="password">Password:</label><br>
+			<input type="text" id="password" name="password"><br><br>
+			<input type="submit" value="Login" onclick="LoginError();" name="ok">
+		</form> 
+		</div>
+
+	</body>
+</html>
