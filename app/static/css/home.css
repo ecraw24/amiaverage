@@ -1,0 +1,70 @@
+body {
+	background-color: 264653;
+}
+#FeaturedCategories {
+	border: 1px solid black;
+	float: left;
+	width: 15%;
+	background-color: teal;
+	text-align: center;
+	padding: 10px 20px;
+}
+#FeaturedCategories div {
+	padding: 5px;
+	border: 1px solid black;
+}
+#ListHeader {
+	background-color: orange;
+	margin: 10px 20px 5px 20px ;
+}
+#ListItem {
+	margin: 4px;
+	background-color: yellow;
+}
+#TopText {
+	color: white;
+	margin-top: 3%;
+	margin-right: 14%;
+	text-align: center;
+}
+#MainText {
+	color: orange;
+	margin-top: 3%;
+	text-align: center;
+	margin-right: 14%;
+}
+#DescText {
+	color: white;
+	margin-top: 15%;
+	clear: both;
+	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	
+}
+#LoginButton {
+	background-color: yellow;
+	float: right;
+	margin-right: 5%;
+	border: solid black 3px;
+}
+#SuggestCategory {
+	float: right;
+	margin-top: 5%;
+	margin-right: 5%;
+	margin-bottom: 3%;
+	text-align: center;
+	background-color: teal;
+	padding: 9px;
+	border: solid black 1px;
+}
+#SugBox {
+	background-color: orange;
+	padding: 10px;
+	border: solid black 1px;
+}
+#ClickBox {
+	background-color: yellow;
+	border: solid black 1px;
+	
+}

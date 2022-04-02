@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+        <head>
+	    <link rel="stylesheet" href="../static/css/home.css">
+            <title id="ListHeader"> Enter Your Score </title>
+        </head>
+		
+		<body style="background-color: #264653;">
+			
+			<div id="LoginButton">
+					<p><a href="https://amiaverage2.herokuapp.com/mypage">Admin Login</a></p>
+			</div>
+			
+			<div id="Picture_and_desc">
+				
+				<p><img alt="Fishing image" src="https://deseret.brightspotcdn.com/dims4/default/fb44d89/2147483647/strip/false/crop/2131x1199+0+199/resize/1200x675!/quality/90/?url=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FRUwNDYA8C73TTCPjLT_GcNEUW_0%3D%2F0x0%3A2131x1596%2F2131x1596%2Ffilters%3Afocal%28971x632%3A972x633%29%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22701651%2Fmerlin_2876560.jpg" style="border-style:solid; border-width:1px; float:left; height:141px; width:250px" /></p>
+
+				<p style="margin: 15px; padding: 10px;">{skill description}</p>
+				<p>&nbsp;</p>	
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+			
+			</div>
+			
+			<hr />
+
+			<div id="MainText">
+				<p>Enter your score for {skill name} to find out how average you truly are!</p>
+				<p>I can {skill verb} <input name="Score" type="text" value="0" />{metric}&nbsp; &nbsp;&nbsp;</p>
+				<p><input name="CalcalateScore" type="button" value="Am I Average?" /></p>
+			</div>
+
+			<hr />
+
+			<div id="MainText">
+				<p>Congratulations! You are {rating}!</p>
+			</div>
+
+			<div id="DescText" style="margin-top: 5px">
+				<table style="border: solid black 1px; margin-top: 15px;">
+					<tbody>
+						<tr>
+						<td>Just Awful</td>
+						<td>Okay</td>
+						<td>Average</td>
+						<td>Pretty Good</td>
+						<td>Damn Girl</td>
+						</tr>
+						<tr>
+						<td>{num}{metric}</td>
+						<td>{num}{metric}</td>
+						<td>{num}{metric}</td>
+						<td>{num}{metric}</td>
+						<td>{num}{metric}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+        </body>
+
+</html>
