@@ -2,61 +2,57 @@
 <html>
 
         <head>
-	    <link rel="stylesheet" href="../static/css/home.css">
-            <title id="ListHeader"> Enter Your Score </title>
+	    <link rel="stylesheet" href="../static/css/enterInfo.css">
+            <title id="ListHeader" class="whiteText"> Enter Your Score </title>
         </head>
 		
-		<body style="background-color: #264653;">
+		<body>
 			
-			<div id="LoginButton">
-					<p><a href="https://amiaverage2.herokuapp.com/mypage">Admin Login</a></p>
-			</div>
-			
-			<div id="Picture_and_desc">
-				
-				<p><img alt="Fishing image" src="https://deseret.brightspotcdn.com/dims4/default/fb44d89/2147483647/strip/false/crop/2131x1199+0+199/resize/1200x675!/quality/90/?url=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FRUwNDYA8C73TTCPjLT_GcNEUW_0%3D%2F0x0%3A2131x1596%2F2131x1596%2Ffilters%3Afocal%28971x632%3A972x633%29%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22701651%2Fmerlin_2876560.jpg" style="border-style:solid; border-width:1px; float:left; height:141px; width:250px" /></p>
-
+			<form action="https://amiaverage.herokuapp.com/mypage">
+				<input name="Login" type="submit" value="Admin Login" class="yellowBox" style="float:right; width:10%; margin:20px 20px 20px 5px"/>
+			</form>
+			<form action="https://amiaverage.herokuapp.com/home">
+				<input name="Home" type="submit" value="Home Page" class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px"/>
+			</form>
+			<br><br><br><br>
+			<div id="Picture_and_desc" class="tealBoxRight">
+				<p><img alt="{Image Link from Database}" src="" style="border-style:solid; border-width:1px; float:left; height:141px; width:250px" /></p>
 				<p style="margin: 15px; padding: 10px;">{skill description}</p>
-				<p>&nbsp;</p>	
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-			
-			</div>
-			
-			<hr />
-
-			<div id="MainText">
-				<p>Enter your score for {skill name} to find out how average you truly are!</p>
-				<p>I can {skill verb} <input name="Score" type="text" value="0" />{metric}&nbsp; &nbsp;&nbsp;</p>
-				<p><input name="CalcalateScore" type="button" value="Am I Average?" /></p>
 			</div>
 
-			<hr />
+			<div id="MainText" class="tealBoxLeft">
+				<p class="whiteText"><b>Enter your score for <b class="orangeBox">{skill name}</b> to find out how average you truly are!</b></p>
+				<br>
+				<p class="whiteText"><b>I can </b> <b class="orangeBox">{skill verb}</b> <input style="width: 10%; height: 25px" name="Score" type="text" value="0" /> <b class="orangeBox">{skill metric}</b></p>
+				<br>
+				<input name="CalcalateScore" type="button" value="Am I Average?" class="yellowBox" style="font-family: Times New Roman; font-size: 16px"/>
+			</div>
 
-			<div id="MainText">
+			<div class="tealBoxLeft">
 				<p>Congratulations! You are {rating}!</p>
-			</div>
 
-			<div id="DescText" style="margin-top: 5px">
-				<table style="border: solid black 1px; margin-top: 15px;">
+				<table>
 					<tbody>
 						<tr>
-						<td>Just Awful</td>
-						<td>Okay</td>
-						<td>Average</td>
-						<td>Pretty Good</td>
-						<td>Damn Girl</td>
+						<td class="yellowBox">Just Awful</td>
+						<td class="goldBox">Okay</td>
+						<td class="orangeBox">Average</td>
+						<td class="goldBox">Pretty Good</td>
+						<td class="yellowBox">Damn Girl</td>
 						</tr>
 						<tr>
-						<td>{num}{metric}</td>
-						<td>{num}{metric}</td>
-						<td>{num}{metric}</td>
-						<td>{num}{metric}</td>
-						<td>{num}{metric}</td>
+						<td class="yellowOutline">{num}{metric}</td>
+						<td class="goldOutline">{num}{metric}</td>
+						<td class="orangeOutline">{num}{metric}</td>
+						<td class="goldOutline">{num}{metric}</td>
+						<td class="yellowOutline">{num}{metric}</td>
 						</tr>
 					</tbody>
 				</table>
+				<br>
+				<form action="https://amiaverage.herokuapp.com/results">
+					<input name="MoreDetails" type="submit" value="See More Details" class="yellowBox" style="font-family: Times New Roman; font-size: 16px"/>
+				</form>
 			</div>
 
         </body>
