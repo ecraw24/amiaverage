@@ -1,0 +1,105 @@
+body {
+	background-color: #264653;
+	border-top: 50px solid  #2A9D8F;
+	margin: 0px; 
+	padding: 10px; 
+}
+
+.orangeBox {
+	background-color: #E76F51;
+	border: solid whitesmoke 1px; 
+	color: black; 
+	padding: 5px; 
+	margin: 10px; 
+	width: 20%; 
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+	font-weight: bold;
+}
+
+.yellowBox {
+	background-color: #E9C46A;
+	border: solid whitesmoke 1px; 
+	color: black; 
+	padding: 5px; 
+	margin: 5px; 
+	text-align: center;
+	font-weight: bold;
+}
+
+.goldBox {
+	background-color: #F4A261;
+	border: solid whitesmoke 1px; 
+	color: black; 
+	padding: 5px; 
+	margin: 5px; 
+	text-align: center;
+	font-weight: bold;
+}
+
+.tealBoxLeft {
+	background-color: #2A9D8F;
+	color: white; 
+	padding: 20px; 
+	margin: 20px; 
+	float: left; 
+	width: 50%;
+	height: 170px;   
+	border: 1px white solid;
+	text-align: center;
+	font-weight: bold;
+}
+
+.tealBoxRight {
+	background-color: #2A9D8F;
+	color: white; 
+	padding: 20px; 
+	margin: 20px; 
+	float: right; 
+	width: 35%; 
+	height: 420px; 
+	border: 1px white solid; 
+	text-align: center;
+}
+
+.orangeOutline {
+	background-color: #2A9D8F;
+	border: solid 3px #E76F51;  
+	color: white; 
+	padding: 5px; 
+	margin: 5px; 
+	text-align: center;
+}
+
+.yellowOutline {
+	background-color: #2A9D8F;
+	border: solid 3px #E9C46A;  
+	color: white; 
+	padding: 5px; 
+	margin: 5px; 
+	text-align: center;
+}
+
+.goldOutline {
+	background-color: #2A9D8F;
+	border: solid 3px #F4A261;  
+	color: white; 
+	padding: 5px; 
+	margin: 5px; 
+	text-align: center;
+}
+
+.whiteText {
+	color: white; 
+	padding: 5px; 
+	margin: 5px; 
+	text-align: center;
+	font-weight: bold;
+}
+
+p {
+	display: "inline"; 
+}
+
+
