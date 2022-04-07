@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../static/css/new_category.css">
+	<title> AmIAverage? </title>
+	<script type = "text/JavaScript">
+         	function SubmitError() {
+            		alert("Invalid Category Submission");
+        	}
+      	</script>
+</head>
+
+<body style="background-color: #264653;">
+
+<div id="enterCatBox">
+	<h2>Enter Category:</h2>
+</div>
+<br>
+<div id="enterInfoBox">
+	<form>
+		<label for="categoryName">Category Name:</label>
+		<input type="text" id="categoryName" name="categoryName"><br><br><br>
+		<label for="verb">Verb:</label>
+		<input type="text" id="verb" name="verb"><br><br><br>
+		<input type="submit" id="submit" value="Submit Category" onclick="SubmitError();" name="ok">
+	</form> 
+</div>
+
+
+</body>
+</html>

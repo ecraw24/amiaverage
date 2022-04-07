@@ -1,0 +1,30 @@
+#enterCatBox {
+	padding 5px;
+	border: 2px solid black;
+	background-color: #F4A261;
+	width: 20%;
+	height: 10%;
+	margin-left: 40%;
+	text-align: center;
+}
+#enterInfoBox {
+	border: 2px solid black;
+	background-color: #E9C46A;
+	padding: 10px;
+	width: 40%;
+	height: 300px;
+	margin-left: 30%;
+
+}
+#categoryName {
+	float: right;
+	margin-right: 35%;
+}
+#verb {
+	float: right;
+	margin-right: 35%;
+}
+#submit {
+	float: right;   
+        margin-right: 38.5%;
+}
