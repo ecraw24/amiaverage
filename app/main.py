@@ -1,8 +1,10 @@
 from flask import Flask, render_template
-#import psycopg2
+import psycopg2
+import os
 
-#conn = psycopg2.connect(dbname="d4ecfjhp2gbtco", user="nvalcjgkjirosy", password="a1d078c1ef28b3ccb5d5f9ff4583e42243fbd419766d05dacafd70e3dbd79d62", host="ec2-3-217-251-77.compute-1.amazonaws.com", sslmode="require")
-#curs=conn.cursor()
+DATABASE_URL = os.environ.get(‘DATABASE_URL’)
+con = psycopg2.connect(DATABASE_URL)
+cur = con.cursor()
 
 app = Flask(__name__)
 
@@ -20,10 +22,8 @@ def my_page():
 
 @app.route('/enterInfo')
 def enter_info():
-    #skillname = curs.execute('SELECT skillname FROM skillsdetail WHERE skillid=3;').fetchall()
-    #curs.close()
-    #conn.close()
-    skillname = 'example skill'
+    skillname = cur.execute('SELECT skillname FROM skillsdetail WHERE skillid=3;').fetchall()
+    #skillname = 'example skill'
     return render_template("enterInfo.html", skillname=skillname)
 
 @app.route('/login')
@@ -44,3 +44,6 @@ def results_page():
 
     return render_template("results.html", skill_name=skill_name, count_responses=count_responses,
     calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
+
+cur.close()
+con.close()
