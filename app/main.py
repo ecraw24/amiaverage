@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import psycopg2-binary
+import psycopg2
 import os
 
 DATABASE_URL = os.environ.get(‘DATABASE_URL’)
