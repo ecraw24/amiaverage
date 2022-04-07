@@ -1,10 +1,8 @@
 from flask import Flask, render_template
-#import os
 #import psycopg2
+#import os
 
-#DATABASE_URL = os.environ['DATABASE_URL']
-
-#conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#DATABASE_URL = os.environ.get(‘DATABASE_URL’)
 
 app = Flask(__name__)
 
@@ -22,7 +20,18 @@ def my_page():
 
 @app.route('/enterInfo')
 def enter_info():
-    return render_template("enterInfo.html")
+    #con = psycopg2.connect(DATABASE_URL)
+    #cur = con.cursor()
+    #skillname = cur.execute('SELECT skillname FROM skillsdetail WHERE skillid=3;').fetchone()
+    skillname = 'bench press'
+    skillverb = 'press'
+    skillmetric = 'lbs'
+    picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
+    description = 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
+    #if con is not None:
+        #con.close()
+        #print('Database connection closed.')
+    return render_template("enterInfo.html", skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
 
 @app.route('/login')
 def login_page():
@@ -42,3 +51,6 @@ def results_page():
 
     return render_template("results.html", skill_name=skill_name, count_responses=count_responses,
     calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
+
+#cur.close()
+#con.close()
