@@ -1,12 +1,17 @@
-from flask import Flask, render_template
-#import os
-#import psycopg2
+from flask import Flask, render_template, current_app
 
-#DATABASE_URL = os.environ['DATABASE_URL']
+def init_app():
+    app = Flask(__name__)
 
-#conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    with app.app_context():
+        # Import parts of our core Flask app
+        from . import routes
 
-app = Flask(__name__)
+        # Import Dash application
+        from .plotlydash.dashboard import create_dashboard
+        app = create_dashboard(app)
+
+        return app
 
 @app.route("/")
 def index():
