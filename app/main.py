@@ -28,6 +28,10 @@ def enter_info():
 def login_page():
     return render_template("login.html")
 
+@app.route('/newcategory')
+def newCategory_page():
+    return render_template("new_category.html")
+
 @app.route('/results/')
 def results_page():
     skill_name = "hot dog eating"
