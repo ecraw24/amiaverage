@@ -1,10 +1,8 @@
 from flask import Flask, render_template
-import psycopg2
+import psycopg2-binary
 import os
 
 DATABASE_URL = os.environ.get(‘DATABASE_URL’)
-con = psycopg2.connect(DATABASE_URL)
-cur = con.cursor()
 
 app = Flask(__name__)
 
@@ -22,8 +20,13 @@ def my_page():
 
 @app.route('/enterInfo')
 def enter_info():
-    skillname = cur.execute('SELECT skillname FROM skillsdetail WHERE skillid=3;').fetchall()
+    con = psycopg2.connect(DATABASE_URL)
+    cur = con.cursor()
+    skillname = cur.execute('SELECT skillname FROM skillsdetail WHERE skillid=3;').fetchone()
     #skillname = 'example skill'
+    if con is not None:
+        con.close()
+        print('Database connection closed.')
     return render_template("enterInfo.html", skillname=skillname)
 
 @app.route('/login')
@@ -45,5 +48,5 @@ def results_page():
     return render_template("results.html", skill_name=skill_name, count_responses=count_responses,
     calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
 
-cur.close()
-con.close()
+#cur.close()
+#con.close()
