@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from dbconnect import enterInfo
 
 app = Flask(__name__)
 
@@ -17,7 +16,7 @@ def my_page():
 
 @app.route('/enterInfo')
 def enter_info():
-    skillname = enterInfo()
+    skillname = 'the bench press'
     skillverb = 'press'
     skillmetric = 'lbs'
     picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
@@ -45,6 +44,3 @@ def results_page():
 
     return render_template("results.html", skill_name=skill_name, count_responses=count_responses,
     calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
-
-#cur.close()
-#con.close()
