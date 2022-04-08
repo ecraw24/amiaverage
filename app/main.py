@@ -1,8 +1,5 @@
 from flask import Flask, render_template
-#import psycopg2
-#import os
-
-#DATABASE_URL = os.environ.get(‘DATABASE_URL’)
+from dbconnect import enterInfo
 
 app = Flask(__name__)
 
@@ -20,10 +17,7 @@ def my_page():
 
 @app.route('/enterInfo')
 def enter_info():
-    #con = psycopg2.connect(DATABASE_URL)
-    #cur = con.cursor()
-    #skillname = cur.execute('SELECT skillname FROM skillsdetail WHERE skillid=3;').fetchone()
-    skillname = 'bench press'
+    skillname = enterInfo()
     skillverb = 'press'
     skillmetric = 'lbs'
     picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
