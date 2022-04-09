@@ -26,7 +26,7 @@ def enter_info():
         #print('Database connection closed.')
     return render_template("enterInfo.html", skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
 
-@app.route('/login')
+@app.route('/login', methods=['POST'])
 def login_page():
     return render_template("login.html")
 
