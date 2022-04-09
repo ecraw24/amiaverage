@@ -106,4 +106,7 @@ p {
 	display: "inline"; 
 }
 
-
+.forms {
+	float: auto;
+	display: inline;
+}

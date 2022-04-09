@@ -19,16 +19,16 @@
 			<div id="MainText" class="tealBoxLeft">
 				<p class="whiteText"><b>Enter your score for <b class="orangeBox">{{ skillname }}</b> to find out how average you truly are!</b></p>
 				<br>
+
+			<form action="https://amiaverage.herokuapp.com/results" method="post" class="forms">
 				<p class="whiteText"><b>I can </b> <b class="orangeBox">{{ skillverb }}</b>
 
-			<form action="https://amiaverage.herokuapp.com/results" method="post">
 			<input style="width: 10%; height: 25px" name="score" type="text" value="0" /> 
+                                <b class="orangeBox">{{ skillmetric }}</b></p><br>
 			<input type="submit" class="yellowBox" value="Am I Average?" style="font-family: Times New Roman; font-size: 16px">
 			</form>
 
-				<b class="orangeBox">{{ skillmetric }}</b></p>
 				<br>
-				<button class="yellowBox" style="font-family: Times New Roman; font-size: 16px">Am I Average?</button>
 			</div>
 
 			<div class="tealBoxLeft">
