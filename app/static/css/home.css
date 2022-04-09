@@ -2,7 +2,7 @@ body {
 	background-color: #264653;
 }
 #FeaturedCategories {
-	border: 1px solid black;
+	border: 1px solid white;
 	float: left;
 	width: 15%;
 	background-color: #2A9D8F;
@@ -11,7 +11,7 @@ body {
 }
 #FeaturedCategories div {
 	padding: 5px;
-	border: 1px solid black;
+	border: 1px solid white;
 }
 #ListItem:hover {
 	background-color: #E76F51;
@@ -62,16 +62,16 @@ body {
 	text-align: center;
 	background-color: #2A9D8F;
 	padding: 9px;
-	border: solid black 1px;
+	border: solid white 1px;
 }
 #SugBox {
 	background-color: #F4A261;
 	padding: 10px;
-	border: solid black 1px;
+	border: solid white 1px;
 }
 #ClickBox {
 	background-color: #E9C46A;
-	border: solid black 1px;	
+	border: solid white 1px;	
 }
 #ClickBox:hover {
 	background-color: #E76F51;
