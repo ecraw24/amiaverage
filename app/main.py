@@ -32,9 +32,9 @@ def login_page():
 
 @app.route('/newcategory', methods=['GET', 'POST'])
 def newCategory_page():
-    if request.method == 'POST':
-        return render_template("new_category.html")
-    else:
+#    if request.method == 'POST':
+#        return render_template("new_category.html")
+#    else:
         return render_template("new_category.html")
 
 @app.route('/results/')
