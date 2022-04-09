@@ -26,11 +26,11 @@ def enter_info():
         #print('Database connection closed.')
     return render_template("enterInfo.html", skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login_page():
     return render_template("login.html")
 
-@app.route('/newcategory', methods=['POST'])
+@app.route('/newcategory', methods=['GET', 'POST'])
 def newCategory_page():
     if request.method == 'POST':
         return render_template("new_category.html")
