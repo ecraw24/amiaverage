@@ -14,7 +14,7 @@ def index_page():
 def my_page():
     return render_template("list.html")
 
-@app.route('/enterInfo')
+@app.route('/enterInfo', methods=['GET', 'POST'])
 def enter_info():
     skillname = 'the bench press'
     skillverb = 'press'
@@ -49,6 +49,6 @@ def results_page():
     
     if request.method == 'POST':
         score = request.form['score']
-        return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
-    else:
         return render_template("results.html", score=score, skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
+    else:
+        return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
