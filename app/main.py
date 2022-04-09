@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
 
@@ -32,10 +32,12 @@ def login_page():
 
 @app.route('/newcategory', methods=['GET', 'POST'])
 def newCategory_page():
-#    if request.method == 'POST':
-#        return render_template("new_category.html")
-#    else:
-        return render_template("new_category.html")
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        return render_template("new_category.html", username=username, password=password)
+    else:
+        return render_template("new_category.html", username='', password='')
 
 @app.route('/results/')
 def results_page():
