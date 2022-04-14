@@ -2,71 +2,69 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" href="../static/css/home.css">
+		<link rel="stylesheet" href="..static/css/enterInfo.css">
 		<title> AmIAverage? </title>
-		
 	</head>
 
-	<body style="background-color: #264653;">
+	<body>
+		<div id="MainText" class="titleBox">
+			<h1>AM I AVERAGE?</h1>
+		</div>
+		<br>
+		<div>
 			<a href="https://amiaverage.herokuapp.com/login">
-                <div id="LoginButton">
-                        <p>Admin Login</p>
-                </div>
-			</a>
-		<div id="FeaturedCategories">
-			<div id="ListHeader">
-				<p>Featured Categories</p>
+				<button class="yellowLogin">Admin Login</button>
+			</a>	
+		</div>
+		<div class="descriptionContainer">
+			<div id="TopText" class="descriptionBox">
+				<h3 style="padding:0px; height:auto">So you wanted to know...<br>Am I Average?</h3>
+			</div>
+			<div id="DescText" class="descriptionBox">
+				<h3>Attempting to boost your ego?<br> 
+					Why else would you have come here!?</h3>
+			</div>
+			<div id="DescText" class="descriptionBox">
+				<h3>Click a category and find out how you stack up<br> against
+	the average (and not so average) Joe! </h3>
+			</div>
+		</div>
+		<div id="FeaturedCategories" class="skillsList">
+			<div id="ListHeader" class="yellowOutline">
+				<p>Featured Skills</p>
 			</div>
 <!--264653 All of these below need the links for the anchors -->
-			<a href="https://amiaverage.herokuapp.com/enterInfo">
-			<div id="ListItem">
-				<p>IQ</p>
+			<div>
+				<a href="https://amiaverage.herokuapp.com/enterInfo">
+					<button class="yellowListItem">IQ</button></a>
+				<a href="https://amiaverage.herokuapp.com/enterInfo">
+					<button class="yellowListItem">Bench Press</button></a>
+				<a href="https://amiaverage.herokuapp.com/enterInfo">
+					<button class="yellowListItem">Hot Dogs in 1 Minute</button></a>
+				<a href="https://amiaverage.herokuapp.com/enterInfo">
+					<button class="yellowListItem">Mile Run Time</button></a>
+				<a href="https://amiaverage.herokuapp.com/enterInfo">
+					<button class="yellowListItem">More...</button></a>
 			</div>
-			</a>
-			<a href="https://amiaverage.herokuapp.com/enterInfo">
-			<div id="ListItem">
-				<p>Bench Press 1 Rep Max</p>
-			</div>
-			</a>
-			<a href="https://amiaverage.herokuapp.com/enterInfo">
-			<div id="ListItem">
-				<p>Hot Dogs in 1 Minute</p>
-			</div>
-			</a>
-			<a href="https://amiaverage.herokuapp.com/mypage">
-			<div id="ListItem">
-				<p>More...</p>
-			</div>
-			</a>
 		</div>
-
-		<div id="TopText">
-			<h3>So you wanted to know...</h3>
-		</div>
-		<div id="MainText">
-			<h1>*** &nbsp &nbspAM &nbsp&nbsp   ***
-			<br>***** &nbsp&nbsp&nbsp I &nbsp&nbsp&nbsp *****
-			<br>** AVERAGE??? **
-			</h1>
-		</div>
-
-<!-- Need to add in the image here -->
-
-                <div id="SuggestCategory">
-                        <div id="SugBox" style="border: solid white 1px">
-                                <p>Want to <br> suggest a new category?</p>
-                        </div>
+		<!-- Need to add in the image here -->
+		<div id="SuggestCategory" class="menuOptions">
+			<div id="SugBox">
+				<br>
+				<p>Want to suggest a new category?</p>
+			</div>
 			<a href="https://amiaverage.herokuapp.com/newcategory">
-                        <div id="ClickBox">
-                                <p>-->CLICK HERE<--</p>
-                        </div>
-			</a>
-                </div>
+				<button class="yellowListItem" style="width:250px; background-color: #F4A261;">Create a Category</button></a>
+		</div>
+		<div id="ViewMySkills" class="menuOptions">
+			<div id="MySkills">
+				<br>
+				<p>Forgot how average you are?</p>
+			</div>
+			<a href="https://amiaverage.herokuapp.com/newcategory">
+				<button class="yellowListItem" style="width:250px; background-color: #F4A261;">View My Skills</button></a>
+		</div>
 
-		<div id="DescText">
-			<h3>Attempting to boost your ego? Why else would you
- have come here!? Click a category and find out how you stack up against
-the average (and not so average) Joe! </h3>
 	</body>
 
 </html>
