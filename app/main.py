@@ -1,7 +1,8 @@
 from flask import Flask, render_template, current_app, request, url_for
 
+app = Flask(__name__)
+
 def init_app():
-    app = Flask(__name__)
 
     with app.app_context():
         # Import parts of our core Flask app
