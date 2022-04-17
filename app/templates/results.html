@@ -2,54 +2,44 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" href="../static/css/home.css">
-        <link rel="stylesheet" href="../static/css/results.css">
+		<link rel="stylesheet" href="../static/css/enterInfo.css">
 		<title> Results </title>
-		
 	</head>
 
-	<body style="background-color: #264653;">
-		<div id="navigation">
-			<div id="nav_header" style="background-color: coral;">
-				<p style="font-weight: bold;"> NAVIGATION </p>
-			</div>
-<!--All except return home are dependent on (yet undesigned) intermediate work-->
-			<div id="same_topic_new_input" style="background-color: gold;">
-				<p>TRY THIS TOPIC AGAIN WITH NEW INPUT</p>
-			</div>
-			<div id="new_assessment" style="background-color: gold;">
-				<p>START A NEW ASSESSMENT</p>
-			</div>
-			<div id="browse" style="background-color: gold;">
-				<p>BROWSE RESULTS WITHOUT SUBMISSION</p>
-			</div>
-			<div id="go_home" style="background-color: gold;">
-				<a href="https://amiaverage2.herokuapp.com/"> RETURN HOME</a>
-			</div>
-		</div>
-
-		<div id="TopText">
-			<h2>In terms of {{skill_name}}, Am I Average?</h2>
-		</div>
-		<div id="result_text">
-			<h1 style="color:coral;"> ALMOST </h1>
-		</div>
-		
-		<div>
-			<p>The score you entered is: {{score}}</p>
-		<div>
-
-<!-- Python-generated image here (all labeling to be done with python graphing package) -->
-
-        <div id="interpretation">
-            <h2 style="font-weight: bold;"> What does this mean? </h2>
-                <p textarea="cols=50;"> Compared to {{count_responses}} respondents, your are in the {{calc_percentile}}.
-                    This means that out of a group of 100, {{top_perc}} are above you and {{bottom_perc}} are below you.
-                </p>
+	<body>
+        <a href="https://amiaverage.herokuapp.com/mypage">
+            <button class="yellowBox" style="float:right; width:10%; margin:20px 20px 20px 5px">Admin Login</button></a>
+        <a href="https://amiaverage.herokuapp.com">
+            <button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px">Home</button></a>
+        <br><br><br><br>
+        
+        <div style="width:500px; float: left">
+            <div id="TopText" class="titleBox" style="width:500px; text-align:center;">
+                <h2>In terms of {{skill_name}}, Am I Average?</h2>
             </div>
-            
+            <div class="titleBox" style="width:500px; text-align:center;"> 
+                <br>
+                <h1 id="result_text" class="orangeBox" style="width:480px">ALMOST</h1>
+                <p>The score you entered is: {{score}}</p>
+                <br>
+            </div>
+            <br>
+            <div id="interpretation" class="orangeOutline" style="width:480px;">
+                <h2> What does this mean? </h2>
+                    <p> Compared to {{count_responses}} respondents, you are in the {{calc_percentile}}.
+                        This means that out of a group of 100, {{top_perc}}% scored above you and {{bottom_perc}}% scored below you.
+                    </p>
+            </div>
         </div>
 
+        <div id="graph_div" class="tealBoxRight" style = "height:350px; width:500px">
+            <img id = "graph" src="https://www.printablee.com/postpic/2010/05/blank-number-line-1-10_237830.png" class="yellowOutline" width=480px height=280px>
+            <a href="https://amiaverage.herokuapp.com/enterInfo">
+                <button class="navigationButton" style="width:175px">Enter a different score</button>
+            </a>	
+            <a href="https://amiaverage.herokuapp.com">
+                <button class="navigationButton" style="width:175px">Browse other skills</button>
+            </a>	
+        </div>
 	</body>
-
 </html>
