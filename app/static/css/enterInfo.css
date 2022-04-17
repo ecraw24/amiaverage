@@ -201,3 +201,16 @@ p {
 	float: auto;
 	display: inline;
 }
+
+.navigationButton {
+	background-color: #E9C46A;
+	border: solid whitesmoke 1px; 
+	color: black; 
+	padding: 5px;  
+	text-align: center;
+	font-weight: bold;
+	float:left; 
+	width:175px; 
+	height:25px;
+	margin: 10px 37px 10px 37px; 
+}
