@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="../static/css/new_category.css">
-	<title> AmIAverage? </title>
-	<script type = "text/JavaScript">
-         	function SubmitError() {
-            		alert("Invalid Category Submission");
-        	}
-      	</script>
-</head>
+    <head>
+        <link rel="stylesheet" href="../static/css/enterInfo.css">
+        <title> AmIAverage? </title>
+        <script type = "text/JavaScript">
+                function SubmitError() {
+                        alert("Invalid Category Submission");
+                }
+        </script>
+    </head>
 
-<body style="background-color: #264653;">
+    <body>
 
-<div id="enterCatBox">
-	<h2>Enter Category:</h2>
-</div>
-<br>
-<div id="enterInfoBox">
-	<form>
-		<label for="categoryName">Category Name{{password}}:</label>
-		<input type="text" id="textBox" name="categoryName"><br><br><br>
-		<label for="verb">Verb {{username}}:</label>
-		<input type="text" id="textBox" name="verb"><br><br><br>
-                <label for="metric">Metric (quantity, time, etc.):</label>
-                <input type="text" id="textBox" name="metric"><br><br><br>
-                <label for="desc">Description:</label>
-                <input type="text" id="textBox" name="desc"><br><br><br>
-		<input type="submit" id="submit" value="Submit Category" onclick="SubmitError();" name="ok">
-	</form> 
-</div>
+        <a href="https://amiaverage.herokuapp.com/mypage">
+            <button class="yellowBox" style="float:right; width:10%; margin:20px 20px 20px 5px">Admin Login</button></a>
+        <a href="https://amiaverage.herokuapp.com">
+            <button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px">Home</button></a>
+        <br><br><br><br>
 
-
-</body>
+        <div id="enterCatBox" class="goldBox" style="width:300px; margin:auto">
+            <h2>Suggest a Category</h2>
+        </div>
+        <br>
+        <div id="enterInfoBox" class="yellowBox" style="width:300px; margin:auto;">
+            <form style="margin:20px">
+                <label for="categoryName" style="float:left">Category Name</label><br>
+                    <input type="text" id="textBox" name="categoryName" style="float:left; width:250px"><br><br>
+                <label for="verb" style="float:left">Verb</label><br>
+                    <input type="text" id="textBox" name="verb" style="float:left; width:250px"><br><br>
+                <label for="metric" style="float:left">Metric</label><br>
+                    <input type="text" id="textBox" name="metric" style="float:left; width:250px"><br><br>
+                <label for="desc" style="float:left">Description</label><br>
+                    <input type="text" id="textBox" name="desc" style="float:left; width:250px"><br><br><br>
+                <input type="submit" id="submit" value="Submit Category" onclick="SubmitError();" name="ok">
+            </form> 
+        </div>
+    </body>
 </html>
