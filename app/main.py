@@ -30,17 +30,21 @@ class skillsinfo(db.Model):
     skill_verb = db.Column(db.String(50))
     skill_metric = db.Column(db.String(50))
     unit_of_measurement = db.Column(db.String(50))
+    picture = db.Column(db.Text)
+    descrip = db.Column(db.Text)
     level1 = db.Column(db.Integer)
     level2 = db.Column(db.Integer)
     level3 = db.Column(db.Integer)
     level4 = db.Column(db.Integer)
     level5 = db.Column(db.Integer)
 
-    def __init__(self, skill_name, skill_verb, skill_metric, unit_of_measurement, level1, level2, level3, level4, level5):
+    def __init__(self, skill_name, skill_verb, skill_metric, unit_of_measurement, picture, descrip, level1, level2, level3, level4, level5):
         self.skill_name = skill_name
         self.skill_verb = skill_verb
         self.skill_metric = skill_metric
         self.unit_of_measurement = unit_of_measurement
+        self.picture = picture
+        self.descrip = descrip
         self.level1 = level1
         self.level2 = level2
         self.level3 = level3
@@ -87,19 +91,17 @@ def render_enter_info_page(html_page, action):
 
     #this line retrieves the 'Bench Press' row from the skillsinfo table
     row = skillsinfo.query.filter_by(skill_name=action).first()
-    #this line retrieves the 'bench press' row from the skillsdetail table
-    detail = skillsdetail.query.filter_by(skill_name=action).first()
 
-    #if either query failed:
-    if (row == NONE or detail == NONE):
+    #if query failed:
+    if (row == NONE):
         return render_template(html_page)
     else:
         #below, we set all the variables using the queries we obtained above
         skillname = row.skill_name #'the bench press'
         skillverb = row.skill_verb #'press'
         skillmetric = row.skill_metric #'lbs'
-        picture = detail.picture #'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
-        descrip = detail.descrip #'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
+        picture = row.picture #'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
+        descrip = row.descrip #'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
         return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=descrip)
         #"http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg"
     
