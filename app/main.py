@@ -4,7 +4,7 @@ TABLE_NAME = "skillsinfo"
 #import subprocess, psycopg2
 #from psycopg2 import sql
 from flask import Flask, render_template, current_app, request, url_for
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 
 #This sets up our flask app
 app = Flask(__name__)
