@@ -8,7 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 #This sets up our flask app
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://nvalcjgkjirosy:a1d078c1ef28b3ccb5d5f9ff4583e42243fbd419766d05dacafd70e3dbd79d62@ec2-3-217-251-77.compute-1.amazonaws.com:5432/d4ecfjhp2gbtco"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://nvalcjgkjirosy:a1d078c1ef28b3ccb5d5f9ff4583e42243fbd419766d05dacafd70e3dbd79d62@ec2-3-217-251-77.compute-1.amazonaws.com:5432/d4ecfjhp2gbtco"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
@@ -74,6 +74,10 @@ def init_app():
 
         return app
 
+# function that returns the render_template() function with proper parameters for the enterInfo
+# page depending on what link was clicked on the home page (link is represented by the action
+# parameter, and is just the skill/category)
+    #this function queries the database
 def render_enter_info_page(html_page, action):
     if action == "Bench Press":
         skillname = 'the bench press'
