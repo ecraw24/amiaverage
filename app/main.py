@@ -4,7 +4,7 @@ TABLE_NAME = "skillsinfo"
 #import subprocess, psycopg2
 #from psycopg2 import sql
 from flask import Flask, render_template, current_app, request, url_for
-#from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 #This sets up our flask app
 app = Flask(__name__)
@@ -12,7 +12,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://nvalcjgkjirosy:a1d078c1ef28b
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 '''
-
 #These commands set up our connection to the database
 #conn_info = subprocess.run(["heroku", "config:get", "DATABASE_URL", "-a", HEROKU_APP_NAME], stdout = subprocess.PIPE)
 #connuri = conn_info.stdout.decode('utf-8').strip()
@@ -75,7 +74,7 @@ def init_app():
 
         return app
 
-def render_page(html_page, action):
+def render_enter_info_page(html_page, action):
     if action == "Bench Press":
         skillname = 'the bench press'
         skillverb = 'press'
@@ -85,8 +84,8 @@ def render_page(html_page, action):
         return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
     elif action == "Mile Run Time":
         skillname = 'mile run time'
-        skillverb = 'run a mile'
-        skillmetric = 'minutes'
+        skillverb = 'run a'
+        skillmetric = 'minute mile'
         picture = "http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg"
         description = 'Running is the activity of moving fast on foot, especially as a sport. The 1-mile run is a common measurement of aerobic fitness.'
         return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)       
@@ -113,15 +112,13 @@ def enter_info():
 
     if request.method == 'POST':
 ### This is where we would pull from the database to set all the HTML variables
-        action = request.form['action']
-        return render_page("enterInfo.html", action)
+        action = request.form['action'] #This is the activity we clicked on the home page
+        return render_enter_info_page("enterInfo.html", action)
     else:
-        #skillname = 'the bench press'
-        #skillverb = 'press'
-        #skillmetric = 'lbs'
-        #picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
-        #description = 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
-        return render_template("enterInfo.html"''', skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description''')
+        #right now this renders the enter info page without any specifics
+            #would be better if this would just take us back to the home page
+                #i.e. call index(), but with an error message present
+        return render_template("enterInfo.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
