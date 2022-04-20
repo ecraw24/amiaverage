@@ -40,9 +40,9 @@ VALUES ('2', 'Hot Dog Eating', 'hot dogs in an hour', 'eat', '', 'Hot Dog Eating
 INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, description)
 VALUES ('3', 'IQ', 'IQ', 'perform tests for a', '', 'Intelligence Quotient (IQ) is a standard measure of intellect');
 INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, description)
-VALUES ('4', 'Bench Press', 'bench', 'lbs for 3 reps', '', 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.');
+VALUES ('4', 'Bench Press', 'bench', 'lbs for 3 reps', 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg', 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.');
 INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, description)
-VALUES ('5', 'Run a Mile', 'run a', 'minute mile', '', 'Running is the activity of moving fast on foot, especially as a sport. The 1-mile run is a common measurement of aerobic fitness.');
+VALUES ('5', 'Run a Mile', 'run a', 'minute mile', 'http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg', 'Running is the activity of moving fast on foot, especially as a sport. The 1-mile run is a common measurement of aerobic fitness.');
 INSERT INTO skillsinfo (id, skill_name, skill_verb, skill_metric, unit_of_measurement, level1, level2, level3, level4, level5)
 -- Inserts for skillinfo
 VALUES ('1', 'Fishing', 'Fish',  'Fish Weight', 'pounds', '5', '10', '15', '20', '25');
