@@ -21,7 +21,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #this creates our database object
 db = SQLAlchemy(app)
 
-class skillsinfo(db.model):
+class skillsinfo(db.Model):
     __tablename__  = 'skillsinfo'
     id = db.Column(db.Integer, primary_key=True)
     skill_name = db.Column(db.String(50))
@@ -45,7 +45,7 @@ class skillsinfo(db.model):
         self.level4 = level4
         self.level5 = level5
 
-class skillsdetail(db.model):
+class skillsdetail(db.Model):
     __tablename__ = 'skillsdetail'
     skillid = db.Column(db.Integer, primary_key=True)
     skillname = db.Column(db.String(50))
