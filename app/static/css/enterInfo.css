@@ -15,7 +15,7 @@ button:hover {
 	background-color: #E76F51;
 }
 
-.menuOptions:hover {
+.orangeListItem:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 	background-color: #E76F51;
 }
@@ -70,6 +70,18 @@ button:hover {
 	font-weight: bold;
 	float: left; 
 	width: 200px; 
+}
+
+.orangeListItem{
+	background-color: #F4A261;
+	border: solid whitesmoke 1px; 
+	color: black; 
+	padding: 5px; 
+	margin: 10px; 
+	text-align: center;
+	font-weight: bold;
+	float: left; 
+	width: 250px; 
 }
 
 .orangeBox {
