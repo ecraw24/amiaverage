@@ -95,6 +95,8 @@ def enter_info():
 
     if request.method == 'POST':
 ### This is where we would pull from the database to set all the HTML variables
+        action = request.form['action']
+
         skillname = 'the bench press'
         skillverb = 'press'
         skillmetric = 'lbs'
@@ -105,15 +107,12 @@ def enter_info():
         #print('Database connection closed.')
         return render_template("enterInfo.html", skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
     else:
-        skillname = 'the bench press'
-        skillverb = 'press'
-        skillmetric = 'lbs'
-        picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
-        description = 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
-    #if con is not None:
-        #con.close()
-        #print('Database connection closed.')
-        return render_template("enterInfo.html", skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
+        #skillname = 'the bench press'
+        #skillverb = 'press'
+        #skillmetric = 'lbs'
+        #picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
+        #description = 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
+        return render_template("enterInfo.html"''', skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description''')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
