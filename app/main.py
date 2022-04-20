@@ -3,6 +3,7 @@ TABLE_NAME = "skillsinfo"
 
 #import subprocess, psycopg2
 #from psycopg2 import sql
+from pickle import NONE
 from flask import Flask, render_template, current_app, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -21,6 +22,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #this creates our database object
 db = SQLAlchemy(app)
 
+#class for the 'skillsinfo' table
 class skillsinfo(db.Model):
     __tablename__  = 'skillsinfo'
     id = db.Column(db.Integer, primary_key=True)
@@ -45,21 +47,22 @@ class skillsinfo(db.Model):
         self.level4 = level4
         self.level5 = level5
 
+#class for the 'skillsdetail' table
 class skillsdetail(db.Model):
     __tablename__ = 'skillsdetail'
     skillid = db.Column(db.Integer, primary_key=True)
-    skillname = db.Column(db.String(50))
-    verb = db.Column(db.String(50))
-    metric = db.Column(db.String(50))
+    skill_name = db.Column(db.String(50))
+    skill_verb = db.Column(db.String(50))
+    skill_metric = db.Column(db.String(50))
     picture = db.Column(db.Text)
-    description = db.Column(db.Text)
+    descrip = db.Column(db.Text)
 
-    def __init__(self, skillname, verb, metric, picture, description):
-        self.skillname = skillname
-        self.verb = verb
-        self.metric = metric
+    def __init__(self, skill_name, skill_verb, skill_metric, picture, descrip):
+        self.skill_name = skill_name
+        self.verb = skill_verb
+        self.metric = skill_metric
         self.picture = picture
-        self.description = description
+        self.descrip = descrip
 
 
 def init_app():
@@ -79,22 +82,27 @@ def init_app():
 # parameter, and is just the skill/category)
     #this function queries the database
 def render_enter_info_page(html_page, action):
-    if action == "Bench Press":
-        skillname = 'the bench press'
-        skillverb = 'press'
-        skillmetric = 'lbs'
-        picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
-        description = 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
-        return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
-    elif action == "Mile Run Time":
-        skillname = 'mile run time'
-        skillverb = 'run a'
-        skillmetric = 'minute mile'
-        picture = "http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg"
-        description = 'Running is the activity of moving fast on foot, especially as a sport. The 1-mile run is a common measurement of aerobic fitness.'
-        return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)       
-    else:
+
+#need to make sure action is in database (perhaps do try: ?)
+
+    #this line retrieves the 'Bench Press' row from the skillsinfo table
+    row = skillsinfo.query.filter_by(skill_name=action).first()
+    #this line retrieves the 'bench press' row from the skillsdetail table
+    detail = skillsdetail.query.filter_by(skill_name=action).first()
+
+    #if either query failed:
+    if (row == NONE or detail == NONE):
         return render_template(html_page)
+    else:
+        #below, we set all the variables using the queries we obtained above
+        skillname = row.skill_name #'the bench press'
+        skillverb = row.skill_verb #'press'
+        skillmetric = row.skill_metric #'lbs'
+        picture = detail.picture #'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
+        descrip = detail.descrip #'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
+        return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=descrip)
+        #"http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg"
+    
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
