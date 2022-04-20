@@ -75,6 +75,17 @@ def init_app():
 
         return app
 
+def render_page(html_page, action):
+    if action == "Bench Press":
+        skillname = 'the bench press'
+        skillverb = 'press'
+        skillmetric = 'lbs'
+        picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
+        description = 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
+        return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
+    else:
+        return render_template(html_page)
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template("home.html")
@@ -96,16 +107,7 @@ def enter_info():
     if request.method == 'POST':
 ### This is where we would pull from the database to set all the HTML variables
         action = request.form['action']
-
-        skillname = 'the bench press'
-        skillverb = 'press'
-        skillmetric = 'lbs'
-        picture = 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg'
-        description = 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.'
-    #if con is not None:
-        #con.close()
-        #print('Database connection closed.')
-        return render_template("enterInfo.html", skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=description)
+        return render_page("enterInfo.html", action)
     else:
         #skillname = 'the bench press'
         #skillverb = 'press'
