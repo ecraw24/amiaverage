@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://nvalcjgkjirosy:a1d078c1ef28b3ccb5d5f9ff4583e42243fbd419766d05dacafd70e3dbd79d62@ec2-3-217-251-77.compute-1.amazonaws.com:5432/d4ecfjhp2gbtco"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-'''
+
 #These commands set up our connection to the database
 #conn_info = subprocess.run(["heroku", "config:get", "DATABASE_URL", "-a", HEROKU_APP_NAME], stdout = subprocess.PIPE)
 #connuri = conn_info.stdout.decode('utf-8').strip()
@@ -60,7 +60,7 @@ class skillsdetail(db.model):
         self.metric = metric
         self.picture = picture
         self.description = description
-'''
+
 
 def init_app():
 
