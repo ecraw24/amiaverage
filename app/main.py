@@ -1,20 +1,67 @@
 HEROKU_APP_NAME = "amiaverage"
 TABLE_NAME = "skillsinfo"
 
-import subprocess, psycopg2
-from psycopg2 import sql
+#import subprocess, psycopg2
+#from psycopg2 import sql
 from flask import Flask, render_template, current_app, request, url_for
+from flask_sqlalchemy import SQLAlchemy
 
 #This sets up our flask app
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://nvalcjgkjirosy:a1d078c1ef28b3ccb5d5f9ff4583e42243fbd419766d05dacafd70e3dbd79d62@ec2-3-217-251-77.compute-1.amazonaws.com:5432/d4ecfjhp2gbtco"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+'''
 
 #These commands set up our connection to the database
-conn_info = subprocess.run(["heroku", "config:get", "DATABASE_URL", "-a", HEROKU_APP_NAME], stdout = subprocess.PIPE)
-connuri = conn_info.stdout.decode('utf-8').strip()
-conn = psycopg2.connect(connuri)
-cursor = conn.cursor()
+#conn_info = subprocess.run(["heroku", "config:get", "DATABASE_URL", "-a", HEROKU_APP_NAME], stdout = subprocess.PIPE)
+#connuri = conn_info.stdout.decode('utf-8').strip()
+#conn = psycopg2.connect(connuri)
+#cursor = conn.cursor()
 
+#this creates our database object
+db = SQLAlchemy(app)
 
+class skillsinfo(db.model):
+    __tablename__  = 'skillsinfo'
+    id = db.Column(db.Integer, primary_key=True)
+    skill_name = db.Column(db.String(50))
+    skill_verb = db.Column(db.String(50))
+    skill_metric = db.Column(db.String(50))
+    unit_of_measurement = db.Column(db.String(50))
+    level1 = db.Column(db.Integer)
+    level2 = db.Column(db.Integer)
+    level3 = db.Column(db.Integer)
+    level4 = db.Column(db.Integer)
+    level5 = db.Column(db.Integer)
+
+    def __init__(self, skill_name, skill_verb, skill_metric, unit_of_measurement, level1, level2, level3, level4, level5):
+        self.skill_name = skill_name
+        self.skill_verb = skill_verb
+        self.skill_metric = skill_metric
+        self.unit_of_measurement = unit_of_measurement
+        self.level1 = level1
+        self.level2 = level2
+        self.level3 = level3
+        self.level4 = level4
+        self.level5 = level5
+
+class skillsdetail(db.model):
+    __tablename__ = 'skillsdetail'
+    skillid = db.Column(db.Integer, primary_key=True)
+    skillname = db.Column(db.String(50))
+    verb = db.Column(db.String(50))
+    metric = db.Column(db.String(50))
+    picture = db.Column(db.Text)
+    description = db.Column(db.Text)
+
+    def __init__(self, skillname, verb, metric, picture, description):
+        self.skillname = skillname
+        self.verb = verb
+        self.metric = metric
+        self.picture = picture
+        self.description = description
+'''
 
 def init_app():
 
