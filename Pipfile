@@ -8,6 +8,8 @@ flask = "*"
 gunicorn = "*"
 psycopg2 = "*"
 dj-database-url = "*"
+psycopg2-binary = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
