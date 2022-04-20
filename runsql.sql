@@ -26,7 +26,7 @@ CREATE TABLE skillsdetail
 		skill_verb varchar(30),
 		picture varchar(255),
 		descrip varchar(255),
-		CONSTRAINT skill_pk PRIMARY KEY (skillid)
+		CONSTRAINT skill_id PRIMARY KEY (skillid)
 	);
 
 
