@@ -1,6 +1,20 @@
+HEROKU_APP_NAME = "amiaverage"
+TABLE_NAME = "skillsinfo"
+
+import subprocess, psycopg2
+from psycopg2 import sql
 from flask import Flask, render_template, current_app, request, url_for
 
+#This sets up our flask app
 app = Flask(__name__)
+
+#These commands set up our connection to the database
+conn_info = subprocess.run(["heroku", "config:get", "DATABASE_URL", "-a", HEROKU_APP_NAME], stdout = subprocess.PIPE)
+connuri = conn_info.stdout.decode('utf-8').strip()
+conn = psycopg2.connect(connuri)
+cursor = conn.cursor()
+
+
 
 def init_app():
 
