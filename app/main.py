@@ -6,7 +6,7 @@ from flask import Flask, render_template, current_app, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 import matplotlib.pyplot as plt
 from io import BytesIO
-#import base64
+import base64
 
 
 #This sets up our flask app
