@@ -7,6 +7,8 @@ from pickle import NONE
 from flask import Flask, render_template, current_app, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
 
 
 #This sets up our flask app
@@ -208,42 +210,15 @@ def get_percentile(score, list):
 
 def plot():
     img = BytesIO()
+    y = [1,2,3,4,5]
+    x = [0,2,1,3,4]
 
-    # set up the figure
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.set_xlim(0,10)
-    ax.set_ylim(0,10)
-
-    # draw lines
-    xmin = 1
-    xmax = 9
-    y = 5
-    height = 1
-
-    plt.hlines(y, xmin, xmax)
-    plt.vlines(xmin, y - height / 2., y + height / 2.)
-    plt.vlines(xmax, y - height / 2., y + height / 2.)
-
-    # draw a point on the line
-    px = 4
-    plt.plot(px,y, 'ro', ms = 15, mfc = 'r')
-
-    # add an arrow
-    plt.annotate('Your score', (px,y), xytext = (px - 1, y + 1), 
-                arrowprops=dict(facecolor='black', shrink=0.1), 
-                horizontalalignment='right')
-
-    # add numbers
-    plt.text(xmin - 0.1, y, '80', horizontalalignment='right')
-    plt.text(xmax + 0.1, y, '115', horizontalalignment='left')
-
-    plt.axis('off')
+    plt.plot(x,y)
 
     plt.savefig(img, format='png')
     plt.close()
     img.seek(0)
     plot_url = base64.b64encode(img.getvalue()).decode('utf8')
-    
+        
     return plot_url
     

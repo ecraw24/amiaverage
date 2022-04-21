@@ -9,6 +9,8 @@ gunicorn = "*"
 dj-database-url = "*"
 flask-sqlalchemy = "*"
 matplotlib = "*"
+base64 = "*"
+io = "*"
 
 [dev-packages]
 
