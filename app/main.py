@@ -181,6 +181,7 @@ def render_results_page(html_page, score, action):
         level4 = row.level4
         level5 = row.level5
         skillname = row.skill_name
+        print(level3)
         percentile = get_percentile(score, [level1, level2, level3, level4, level5])
         return render_template(html_page, score=score, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5)
 
