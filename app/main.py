@@ -164,7 +164,7 @@ def results_page():
     if request.method == 'POST':
         score = request.form['score']
         skillname = request.form['skill_name']
-        return render_template("results.html", score=score, skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
+        return render_results_page("results.html", score, skillname)
     else:
         return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
 
