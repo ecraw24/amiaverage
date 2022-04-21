@@ -243,7 +243,7 @@ def plot():
     plt.savefig(img, format='png')
     plt.close()
     img.seek(0)
-    plot_url = base64.url_safeb64encode(img.getvalue())
+    plot_url = base64.b64encode(img.getvalue()).decode('utf8')
         
     return plot_url
     
