@@ -175,11 +175,11 @@ def render_results_page(html_page, score, action):
     if row == NONE:
         return render_template("results.html", score='No info entered')
     else:
-        level1 = row.level1
-        level2 = row.level2
-        level3 = row.level3
-        level4 = row.level4
-        level5 = row.level5
+        level1 = int(row.level1)
+        level2 = int(row.level2)
+        level3 = int(row.level3)
+        level4 = int(row.level4)
+        level5 = int(row.level5)
         skillname = row.skill_name
         print(level3)
         percentile = get_percentile(score, [level1, level2, level3, level4, level5])
