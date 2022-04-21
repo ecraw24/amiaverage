@@ -215,5 +215,5 @@ def plot():
         img.seek(0)
         plot_url = base64.b64encode(img.getvalue()).decode('utf8')
 
-    return render_template("results.html", plot_url=plot_url)
+    return render_template(plot_url=plot_url)
     
