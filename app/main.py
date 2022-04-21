@@ -150,7 +150,7 @@ def newCategory_page():
     else:
         return render_template("new_category.html", username='', password='')
 
-@app.route('/results', methods=['GET', 'POST'])
+@app.route('/results/', methods=['GET', 'POST'])
 def results_page():
 
 ##similar to the enterInfo page, pull from the database when we receive the post request to set the variables
