@@ -208,7 +208,7 @@ def get_percentile(score, list):
 
 def plot():
     img = BytesIO()
-    
+
     # set up the figure
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -243,7 +243,7 @@ def plot():
     plt.savefig(img, format='png')
     plt.close()
     img.seek(0)
-    plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+    plot_url = base64.url_safeb64encode(img.getvalue()).decode('utf8')
         
     return plot_url
     
