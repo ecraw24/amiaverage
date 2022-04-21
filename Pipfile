@@ -6,11 +6,11 @@ name = "pypi"
 [packages]
 flask = "*"
 gunicorn = "*"
+psycopg2 = "*"
 dj-database-url = "*"
 flask-sqlalchemy = "*"
 matplotlib = "*"
-base64 = "*"
-io = "*"
+
 
 [dev-packages]
 

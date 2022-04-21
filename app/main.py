@@ -1,8 +1,6 @@
 HEROKU_APP_NAME = "amiaverage"
 TABLE_NAME = "skillsinfo"
 
-#import subprocess, psycopg2
-#from psycopg2 import sql
 from pickle import NONE
 from flask import Flask, render_template, current_app, request, url_for
 from flask_sqlalchemy import SQLAlchemy
