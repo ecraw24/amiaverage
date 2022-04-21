@@ -26,9 +26,14 @@
             <br>
             <div id="interpretation" class="orangeOutline" style="width:480px;">
                 <h2> What does this mean? </h2>
-                    <p> Compared to {{count_responses}} respondents, you are in the {{calc_percentile}}.
-                        This means that out of a group of 100, {{top_perc}}% scored above you and {{bottom_perc}}% scored below you.
+                    <p> Compared to other<!--{{count_responses}}--> respondents, you are in the {{calc_percentile}}.
+                        This means that out of a group of 100, {{top_perc}}% scored above you and {{calc_percentile}}% scored below you.
                     </p>
+                    <p>level1: {{ level1 }}</p>
+                    <p>level2: {{ level2 }}</p>
+                    <p>level3: {{ level3 }}</p>
+                    <p>level4: {{ level4 }}</p>
+                    <p>level5: {{ level5 }}</p>
             </div>
         </div>
 

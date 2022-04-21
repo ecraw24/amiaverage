@@ -23,6 +23,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 #class for the 'skillsinfo' table
+    #In this way, the table is an object, and we can get the rows through queries
+        # row = killsinfo.query.filter_by(skill_name='SKILLNAME').first()
+            #returns the row where the column for skill_name = 'SKILLNAME'
+        # The values/attributes for each column can then be obtained via row.attribute
 class skillsinfo(db.Model):
     __tablename__  = 'skillsinfo'
     id = db.Column(db.Integer, primary_key=True)
@@ -87,14 +91,13 @@ def init_app():
     #this function queries the database
 def render_enter_info_page(html_page, action):
 
-#need to make sure action is in database (perhaps do try: ?)
-
     #this line retrieves the 'Bench Press' row from the skillsinfo table
     row = skillsinfo.query.filter_by(skill_name=action).first()
 
-    #if query failed:
+    #if query failed (i.e. if 'action' was not in the skillsinfo table):
     if (row == NONE):
         return render_template(html_page)
+    #if query was successful:
     else:
         #below, we set all the variables using the queries we obtained above
         skillname = row.skill_name #'the bench press'
@@ -160,8 +163,44 @@ def results_page():
     
     if request.method == 'POST':
         score = request.form['score']
+        skillname = request.form['skill_name']
         return render_template("results.html", score=score, skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
     else:
         return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
 
+#function for rendering the results page
+def render_results_page(html_page, score, action):
+    #query the skillsinfo table for the row with skill_name = action
+    row = skillsinfo.query.filter_by(skill_name=action).first()
+    if row == NONE:
+        return render_template("results.html", score='No info entered')
+    else:
+        level1 = row.level1
+        level2 = row.level2
+        level3 = row.level3
+        level4 = row.level4
+        level5 = row.level5
+        skillname = row.skill_name
+        percentile = get_percentile(score, [level1, level2, level3, level4, level5])
+        return render_template(html_page, score=score, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5)
 
+#returns the percentile that the score achieved for a skill
+def get_percentile(score, list):
+    place = 0
+    #loop sets 'place' to 0 if below level1, 1 if between 1 and 2, ..., 5 if greater than level5
+    for i, elt in enumerate(list):
+        if score > elt:
+            place = i + 1
+        else:
+            break
+    #now, we calculate a rough percentage
+        #this is very poor, just serving as a temporary placeholder
+    if place == 5:
+        return 100
+    if place == 0:
+        return 0
+    prev_lvl = list[place-1]
+    next_lvl = list[place]
+    return (place * 20) + (score // (next_lvl - prev_lvl))
+
+    
