@@ -183,7 +183,7 @@ def render_results_page(html_page, score, action):
         skillname = row.skill_name
         percentile = get_percentile(int(score), [level1, level2, level3, level4, level5])
         plot_url = plot()
-        return render_template(html_page, score=score, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5 plot_url=plot_url)
+        return render_template(html_page, score=score, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
 
 #returns the percentile that the score achieved for a skill
 def get_percentile(score, list):
