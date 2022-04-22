@@ -9,9 +9,18 @@ and then look at how to use php language-->
             <link rel="stylesheet" href="../static/css/enterInfo.css">
             <!-- href="../static/css/enterInfo.css" -->
             <title> AmIAverage? </title>
-		    
+		    <!-- -->
             <script type = "text/JavaScript">
-         		function handleSubmit() { return false; }
+                // function handleSubmit() { return false; }
+                function LoginError() {
+            		alert("Invalid username and password");
+        		}
+                function ClearText() {
+                    loginBox = document.getElementById("username");
+                    passwordBox = document.getElementById("password");
+                    loginBox.value="";
+                    passwordBox.value="";
+                }
       		</script>
 
         </head>
@@ -28,14 +37,15 @@ and then look at how to use php language-->
             <br>
 
             <div class="yellowBox" style="width:400px; height:140px; margin:auto">
-            <form method="POST" action="https://amiaverage.herokuapp.com/mypage">
+            <!--<form method="POST" action="https://amiaverage.herokuapp.com/mypage">-->
+            <form method="POST" action="https://amiaverage.herokuapp.com/login">
             <fieldset>
                 <br>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username"><br><br>
                 <label for="password">Password:</label>
                 <input type="text" id="password" name="password"><br><br>
-                <input type="submit" value="Login">
+                <input type="submit" value="Login" onclick="LoginError();ClearText();" name="ok">
             </fieldset>
             </form> 
             </div>

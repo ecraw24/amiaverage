@@ -110,6 +110,9 @@ def render_enter_info_page(html_page, action):
         return render_template(html_page, skillname=skillname, skillverb=skillverb, skillmetric=skillmetric, picture=picture, description=descrip)
         #"http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg"
     
+########
+# Section for page routes 
+########
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -169,6 +172,14 @@ def results_page():
         return render_results_page("results.html", score, skillname)
     else:
         return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
+
+
+#########
+#END Section for page routes
+#########
+
+
+
 
 #function for rendering the results page
 def render_results_page(html_page, score, action):
