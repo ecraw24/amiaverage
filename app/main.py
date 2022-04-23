@@ -2,6 +2,7 @@ HEROKU_APP_NAME = "amiaverage"
 TABLE_NAME = "skillsinfo"
 
 from pickle import NONE
+from unicodedata import category
 from flask import Flask, render_template, current_app, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 import matplotlib.pyplot as plt
@@ -56,6 +57,21 @@ class skillsinfo(db.Model):
         self.level3 = level3
         self.level4 = level4
         self.level5 = level5
+
+#class for the suggestions tables
+class suggestions(db.Model):
+    __tablename__ = 'suggestions'
+    requestid = db.Column(db.Integer, primary_key=True)
+    skill_name = db.Column(db.String(50))
+    skill_verb = db.Column(db.String(50))
+    skill_metric = db.Column(db.String(50))
+    descrip = db.Column(db.Text)
+
+    def __init__(self, skill_name, skill_verb, skill_metric, descrip):
+        self.skill_name = skill_name
+        self.verb = skill_verb
+        self.metric = skill_metric
+        self.descrip = descrip
 
 #class for the 'skillsdetail' table
 class skillsdetail(db.Model):
@@ -147,13 +163,31 @@ def login_page():
     return render_template("login.html")
 
 @app.route('/newcategory', methods=['GET', 'POST'])
-def newCategory_page():
+def newCategory_page(badSubmission=False):
+    #check in post request for if the suggestion was valid
+        #perhaps call this from success_page()
+            #use a variable as a parameter???
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        return render_template("new_category.html", username=username, password=password)
+        return render_template("new_category.html")
     else:
-        return render_template("new_category.html", username='', password='')
+        return render_template("new_category.html")
+
+@app.route('/submit', methods=['GET', 'POST'])
+def submit_page():
+    if request.method == 'POST':
+        #below are the request form variables from the new_category page
+        categoryName = request.form['categoryName'].lower()
+        verb = request.form['verb']
+        metric = request.form['metric']
+        desc = request.form['desc']
+        unit = request.form['unit_of_measurement']
+        #if the category has already been suggested
+        if db.session.query(suggestions).filter_by(skill_name=categoryName) != None:
+            return render_template("new_category.html", message="Suggestion has already been made. Please enter another one.")
+        #if there are no issues, render the success page
+        render_template("success.html")
+    else:
+        return "ERROR: INVALID METHOD OF REACHING PAGE"
 
 @app.route('/results/', methods=['GET', 'POST'])
 def results_page():
