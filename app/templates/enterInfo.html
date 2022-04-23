@@ -10,7 +10,7 @@
 				var inp = document.getElementsByName("score")
 				if (isNaN(inp) || Number(inp) < 0){
 					alert("Invalid Score Please Submit a Positive Number");
-					event.preventDefaults();
+					event.preventDefault();
 					break;
 				}
 			}
