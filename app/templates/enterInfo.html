@@ -23,7 +23,7 @@
 		<!--This is the main form for sending info to the results page-->
 			<form action="https://amiaverage.herokuapp.com/results" method="post" class="forms">
 				<p class="whiteText"><b>I can </b> <b class="orangeBox">{{ skillverb }}</b>
-				<input style="width: 10%; height: 25px" name="score" type="text" value="0" /> 
+				<input style="width: 10%; height: 25px" name="score" type="text" placeholder="Score" /> 
                 <b class="orangeBox">{{ skillmetric }}</b></p><br>
 				<!--This is a hidden value that will be sent along with the form-->
 				<input type="hidden" name="skill_name" value="{{ skillname }}">

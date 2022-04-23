@@ -1,5 +1,6 @@
 DROP TABLE skillsinfo;
 --DROP TABLE skillsdetail;
+DROP TABLE suggestions;
 
 
 
@@ -18,6 +19,18 @@ CREATE TABLE skillsinfo
 		level4 numeric,
 		level5 numeric,
 		CONSTRAINT skill_pk PRIMARY KEY (id)
+	);
+
+CREATE TABLE suggestions
+
+	(
+		requestid int,
+		skill_name varchar(50) NOT NULL,
+		skill_verb varchar(30),
+		skill_metric varchar(30),
+		unit_of_measurement varchar(30),
+		descrip varchar(255),
+		CONSTRAINT request_id PRIMARY KEY (requestid)
 	);
 
 --CREATE TABLE skillsdetail

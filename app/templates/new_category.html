@@ -4,9 +4,32 @@
         <link rel="stylesheet" href="../static/css/enterInfo.css">
         <title> AmIAverage? </title>
         <script type = "text/JavaScript">
-                function SubmitError() {
-                        alert("Invalid Category Submission");
+            window.addEventListener('load', function () {
+                message = document.getElementById("message");
+                //removes the message if none was passed in
+                if (message.textContent == '{{ message }}') {
+                    message.remove();
+                    //console.log(message.textContent);
+                    //console.log("Hi");
                 }
+            });
+            //function to catch submission errors
+            function SubmitError() {              
+                textBox1 = document.getElementById("textBox1");
+                textBox2 = document.getElementById("textBox2");
+                textBox3 = document.getElementById("textBox3");
+                textBox4 = document.getElementById("textBox4");
+                textBox5 = document.getElementById("textBox5");
+                lst = [textBox1, textBox2, textBox3, textBox4, textBox5];
+                //this for loop stops the submission if any of the inputs are empty or only whitespace
+                for (var i = 0; i < lst.length; i++) {
+                    if (lst[i].value == '' || lst[i].value.trim().length == 0) {
+                        alert("Invalid Category Submission. Make sure all fields are filled."); 
+                        event.preventDefault();
+                        break;
+                    }
+                }
+            }
         </script>
     </head>
 
@@ -18,22 +41,34 @@
             <button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px">Home</button></a>
         <br><br><br><br>
 
+        <p id="message">{{ message }}</p>
+
         <div id="enterCatBox" class="goldBox" style="width:300px; margin:auto">
             <h2>Suggest a Category</h2>
         </div>
         <br>
         <div id="enterInfoBox" class="yellowBox" style="width:300px; margin:auto;">
-            <form style="margin:20px">
+            <form style="margin:20px" method="post" action="/submit" onsubmit="SubmitError();">
+            <!--<form style="margin:20px" onclick="SubmitError();">-->
                 <label for="categoryName" style="float:left">Category Name</label><br>
-                    <input type="text" id="textBox" name="categoryName" style="float:left; width:250px"><br><br>
+                    <input type="text" id="textBox1" name="categoryName" placeholder="Category Name" style="float:left; width:250px"><br><br>
                 <label for="verb" style="float:left">Verb</label><br>
-                    <input type="text" id="textBox" name="verb" style="float:left; width:250px"><br><br>
+                    <input type="text" id="textBox2" name="verb" placeholder="Verb" style="float:left; width:250px"><br><br>
                 <label for="metric" style="float:left">Metric</label><br>
-                    <input type="text" id="textBox" name="metric" style="float:left; width:250px"><br><br>
+                    <input type="text" id="textBox3" name="metric" placeholder="Metric" style="float:left; width:250px"><br><br>
+                <label for="unit_of_measurement" style="float:left">Unit of Measurement</label><br>
+                    <input type="text" id="textBox4" name="unit_of_measurement" placeholder="Unit" style="float:left; width:250px"><br><br>
                 <label for="desc" style="float:left">Description</label><br>
-                    <input type="text" id="textBox" name="desc" style="float:left; width:250px"><br><br><br>
-                <input type="submit" id="submit" value="Submit Category" onclick="SubmitError();" name="ok">
+                    <textarea id="textBox5" name="desc" style="float:left; width:250px; font-family: Arial;" placeholder="Describe the category in a sentence or two"></textarea>
+                <br><br><br>
+                <input type="submit" id="submit" value="Submit Category" style="margin: 5px" name="ok">
             </form> 
         </div>
+        <!--Code for error message if input was invalid
+        {% if message %}
+        <div class="goldBox" >
+            <p> {{ message | safe }}</p>
+        </div>
+        {% end if %}-->
     </body>
 </html>
