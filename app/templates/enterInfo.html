@@ -4,6 +4,18 @@
         <head>
 	    <link rel="stylesheet" href="../static/css/enterInfo.css">
             <title id="ListHeader" class="whiteText"> Enter Your Score </title>
+		<script type="text/Javascript">
+			function check_num_ge_zero()
+			{
+				var inp = document.getElementsByName("score")
+				if (isNaN(inp) || Number(inp) < 0){
+					alert("Invalid Score Please Submit a Positive Number");
+					event.preventDefaults();
+					break;
+				}
+			}
+
+		</script>
         </head>
 		
 		<body>
@@ -21,7 +33,7 @@
 				<br>
 
 		<!--This is the main form for sending info to the results page-->
-			<form action="https://amiaverage.herokuapp.com/results" method="post" class="forms">
+			<form action="https://amiaverage.herokuapp.com/results" method="post" class="forms" onsubmit="check_num_ge_zero()">
 				<p class="whiteText"><b>I can </b> <b class="orangeBox">{{ skillverb }}</b>
 				<input style="width: 10%; height: 25px" name="score" type="text" placeholder="Score" /> 
                 <b class="orangeBox">{{ skillmetric }}</b></p><br>
