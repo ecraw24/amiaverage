@@ -163,7 +163,7 @@ def login_page():
     return render_template("login.html")
 
 @app.route('/newcategory', methods=['GET', 'POST'])
-def newCategory_page(badSubmission=False):
+def newCategory_page():
     #check in post request for if the suggestion was valid
         #perhaps call this from success_page()
             #use a variable as a parameter???
