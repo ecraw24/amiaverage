@@ -65,12 +65,14 @@ class suggestions(db.Model):
     skill_name = db.Column(db.String(50))
     skill_verb = db.Column(db.String(50))
     skill_metric = db.Column(db.String(50))
+    skill_unit = db.Column(db.String(50))
     descrip = db.Column(db.Text)
 
-    def __init__(self, skill_name, skill_verb, skill_metric, descrip):
+    def __init__(self, skill_name, skill_verb, skill_metric, skill_unit, descrip):
         self.skill_name = skill_name
         self.verb = skill_verb
         self.metric = skill_metric
+        self.unit = skill_unit
         self.descrip = descrip
 
 #class for the 'skillsdetail' table
@@ -181,10 +183,15 @@ def submit_page():
         metric = request.form['metric']
         desc = request.form['desc']
         unit = request.form['unit_of_measurement']
+
+
         #if the category has already been suggested
         if db.session.query(suggestions).filter_by(skill_name=categoryName).first() != None:
             return render_template("new_category.html", message="Suggestion has already been made. Please enter another one.")
-        #if there are no issues, render the success page
+        #if there are no issues, render the success page and add to the database
+        data = suggestions(categoryName, verb, metric, unit, desc)
+        db.session.add(data)
+        db.session.commit()
         return render_template("success.html")
     else:
         return "ERROR: INVALID METHOD OF REACHING PAGE"

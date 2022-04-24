@@ -1,6 +1,5 @@
 DROP TABLE skillsinfo;
---DROP TABLE skillsdetail;
-DROP TABLE suggestions;
+--DROP TABLE suggestions;
 
 
 
@@ -21,28 +20,17 @@ CREATE TABLE skillsinfo
 		CONSTRAINT skill_pk PRIMARY KEY (id)
 	);
 
-CREATE TABLE suggestions
-
-	(
-		requestid int,
-		skill_name varchar(50) NOT NULL,
-		skill_verb varchar(30),
-		skill_metric varchar(30),
-		unit_of_measurement varchar(30),
-		descrip varchar(255),
-		CONSTRAINT request_id PRIMARY KEY (requestid)
-	);
-
---CREATE TABLE skillsdetail
+--CREATE TABLE suggestions
 --	(
---		skillid int,
+--		requestid int,
 --		skill_name varchar(50) NOT NULL,
---		skill_metric varchar(30),
 --		skill_verb varchar(30),
---		picture varchar(255),
+--		skill_metric varchar(30),
+--		unit_of_measurement varchar(30),
 --		descrip varchar(255),
---		CONSTRAINT skill_id PRIMARY KEY (skillid)
+--		CONSTRAINT request_id PRIMARY KEY (requestid)
 --	);
+
 
 
 -- "http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg"
