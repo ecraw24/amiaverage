@@ -69,9 +69,9 @@ class suggestions(db.Model):
 
     def __init__(self, skill_name, skill_verb, skill_metric, unit_of_measurement, descrip):
         self.skill_name = skill_name
-        self.verb = skill_verb
-        self.metric = skill_metric
-        self.unit = unit_of_measurement
+        self.skill_verb = skill_verb
+        self.skill_metric = skill_metric
+        self.unit_of_measurement = unit_of_measurement
         self.descrip = descrip
 
 #class for the 'skillsdetail' table
