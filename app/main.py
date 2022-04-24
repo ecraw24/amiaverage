@@ -182,10 +182,10 @@ def submit_page():
         desc = request.form['desc']
         unit = request.form['unit_of_measurement']
         #if the category has already been suggested
-        if db.session.query(suggestions).filter_by(skill_name=categoryName) != None:
+        if db.session.query(suggestions).filter_by(skill_name=categoryName).first() != None:
             return render_template("new_category.html", message="Suggestion has already been made. Please enter another one.")
         #if there are no issues, render the success page
-        render_template("success.html")
+        return render_template("success.html")
     else:
         return "ERROR: INVALID METHOD OF REACHING PAGE"
 
