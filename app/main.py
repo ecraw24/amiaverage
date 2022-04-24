@@ -61,7 +61,7 @@ class skillsinfo(db.Model):
 #class for the suggestions tables
 class suggestions(db.Model):
     __tablename__ = 'suggestions'
-    skill_name = db.Column(db.String(50))
+    skill_name = db.Column(db.String(50), primary_key=True)
     skill_verb = db.Column(db.String(50))
     skill_metric = db.Column(db.String(50))
     unit_of_measurement = db.Column(db.String(50))
