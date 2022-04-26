@@ -90,7 +90,7 @@ body {
 	padding-left: 0; 
 }
 
-.menu li a {
+.menu li input {
 	text-decoration: none;
 	display: block;
 	background-color :#E9C46A;
@@ -102,7 +102,7 @@ body {
 	padding: 3%;
 }
   
-.menu li a:hover {
+.menu li input:hover {
 	text-decoration: none;
 	background-color: #e6d4a6;
 }
