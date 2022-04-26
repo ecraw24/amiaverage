@@ -4,77 +4,49 @@
 	<head>
 		<link rel="stylesheet" href="../static/css/enterInfo.css">
 		<title> AmIAverage? </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
 	<body>
-		<div id="MainText" class="titleBox">
-			<h1>AM I AVERAGE?</h1>
+		<div id="MainText" class="header">
+			<h1>AM I AVERAGE</h1>
+			<h4><i>Find out how you stack up against
+				the average Joe</i></h4>
 		</div>
-		<br>
-		<div>
-			<a href="https://amiaverage.herokuapp.com/login">
-				<button class="yellowLogin">Admin Login</button>
-			</a>	
-		</div>
-		<div class="descriptionContainer">
-			<div id="TopText" class="descriptionBox">
-				<h3 style="padding:0px; height:auto">So you wanted to know...<br>Am I Average?</h3>
+		
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-5 menu">
+				<form action="https://amiaverage.herokuapp.com/enterInfo" method="post" class="forms">
+					<ul>
+						<li><label><h3>Featured Skills</h3></label></li>
+						<li><input type="submit" name="action" value="IQ"></li>
+						<li><input type="submit" name="action" value="Bench Press"></li>
+						<li><input type="submit" name="action" value="Hot Dog Eating"></li>
+						<li><input type="submit" name="action" value="Run a Mile"></li>
+						<li><input type="submit" name="action" value="Fishing"></li>
+					</ul>
+				</form>
 			</div>
-			<div id="DescText" class="descriptionBox">
-				<h3>Attempting to boost your ego?<br> 
-					Why else would you have come here!?</h3>
+			<div class="col-1"></div>
+			<div class="col-6 options">
+				<ul>
+					<li><label><h3>Want to suggest a new skill?</h3></label></li>
+					<li><a href="https://amiaverage.herokuapp.com/newcategory">
+						Create a Skill</a></li>
+					<br><li><label><h3>Forgot how average you are?</h3></label></li>
+					<li><a href="https://amiaverage.herokuapp.com/mypage">
+						View My Skills</a></li>
+				</ul>
 			</div>
-			<div id="DescText" class="descriptionBox">
-				<h3>Click a category and find out how you stack up<br> against
-	the average (and not so average) Joe! </h3>
-			</div>
-		</div>
-		<div id="FeaturedCategories" class="skillsList">
-			<div id="ListHeader" class="yellowOutline">
-				<p>Featured Skills</p>
-			</div>
-<!--264653 All of these below need the links for the anchors -->
-			<div>
-			<form action="https://amiaverage.herokuapp.com/enterInfo" method="post" class="forms">
-
-				<input type="submit" name="action" class="yellowListItem" value="IQ">
-				<input type="submit" name="action" class="yellowListItem" value="Bench Press">
-				<input type="submit" name="action" class="yellowListItem" value="Hot Dog Eating">
-				<input type="submit" name="action" class="yellowListItem" value="Run a Mile">
-				<input type="submit" name="action" class="yellowListItem" value="Fishing">
-			<!--
-				<a href="https://amiaverage.herokuapp.com/enterInfo">
-					<button class="yellowListItem">IQ</button></a>
-				<a href="https://amiaverage.herokuapp.com/enterInfo">
-					<button class="yellowListItem">Bench Press</button></a>
-				<a href="https://amiaverage.herokuapp.com/enterInfo">
-					<button class="yellowListItem">Hot Dogs in 1 Minute</button></a>
-				<a href="https://amiaverage.herokuapp.com/enterInfo">
-					<button class="yellowListItem">Mile Run Time</button></a>
-				<a href="https://amiaverage.herokuapp.com/enterInfo">
-					<button class="yellowListItem">More...</button></a>
-				-->
-			</form>
+			<div class="col-3"></div>
+			<div class="col-4 navigation">
+				<ul>
+					<li><a href="https://amiaverage.herokuapp.com/login">
+					Admin Login</a></li>
+				</ul>
 			</div>
 		</div>
-		<!-- Need to add in the image here -->
-		<div id="SuggestCategory" class="menuOptions">
-			<div id="SugBox">
-				<br>
-				<p>Want to suggest a new category?</p>
-			</div>
-			<a href="https://amiaverage.herokuapp.com/newcategory">
-				<button class="orangeListItem">Create a Category</button></a>
-		</div>
-		<div id="ViewMySkills" class="menuOptions">
-			<div id="MySkills">
-				<br>
-				<p>Forgot how average you are?</p>
-			</div>
-			<a href="https://amiaverage.herokuapp.com/mypage">
-				<button class="orangeListItem">View My Skills</button></a>
-		</div>
-
 	</body>
 
 </html>
