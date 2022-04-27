@@ -253,6 +253,22 @@ body {
 	background-color: #e6d4a6;
 }
 
+#loginButton input {
+	text-decoration: none;
+	display: block; 
+	background-color :#E9C46A;
+	color: black;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	text-align: center;
+	width: 90%;
+	margin: 5%; 
+	padding: 3%;
+}
+  
+#loginButton input:hover {
+	text-decoration: none;
+	background-color: #e6d4a6;
+}
 
 /*will delete the following before production and after finishing responsive design */
 
