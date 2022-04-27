@@ -1,75 +1,77 @@
 <!DOCTYPE html>
 <html>
-
-        <head>
-	    <link rel="stylesheet" href="../static/css/enterInfo.css">
-            <title id="ListHeader" class="whiteText"> Enter Your Score </title>
-		<script type="text/Javascript">
-			function check_num_ge_zero()
-			{
-				var inp = document.getElementsByName("score")
-				if (isNaN(inp) || Number(inp) < 0){
-					alert("Invalid Score Please Submit a Positive Number");
-					event.preventDefault();
-					break;
-				}
-			}
-
-		</script>
-        </head>
+    
+    <head>
+        <link rel="stylesheet" href="../static/css/enterInfo.css">
+        <title id="ListHeader" class="whiteText"> Enter Your Score </title>
+        <script type="text/Javascript">
+            function check_num_ge_zero()
+            {
+                var inp = document.getElementsByName("score")
+                if (isNaN(inp) || Number(inp) < 0){
+                    alert("Invalid Score Please Submit a Positive Number");
+                    event.preventDefault();
+                    break;
+                }
+            }
+        </script>
+    </head>
 		
-		<body>
-			
-			<a href="https://amiaverage.herokuapp.com/mypage"><button class="yellowBox" style="float:right; width:10%; margin:20px 20px 20px 5px"/>Admin Login</button></a>
-			<a href="https://amiaverage.herokuapp.com"><button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px"/>Home</button></a>
-			<br><br><br><br>
-			<div id="Picture_and_desc" class="tealBoxRight">
-				<p><img alt="{Image Link from Database}" src="{{ picture }}" style="border-style:solid; border-width:1px; float:left; height:auto; width:100%" /></p>
-				<p style="margin: 15px; padding: 10px;">{{ description }}</p>
+    <body>
+        
+        <div id="MainText" class="header">
+			<h1>AM I AVERAGE</h1>
+			<h4><i>Find out how you stack up against the average Joe</i></h4>
+		</div>
+
+        <div class="row">
+			<div class="col-1"></div>
+			<div class="col-8 menu">
+                <ul>
+                    <li>
+                        <li><label style="border: solid 3px #E76F51;"><h3>{{ skillname }}</h3></label></li>
+                        <p>Enter your score to find out how average you are!</p><br>
+                    </li>
+                    <li>
+                        <!-- This is the main form for sending info to the results page -->
+                        <form action="https://amiaverage.herokuapp.com/results" method="post" class="forms" onsubmit="check_num_ge_zero()">
+                            <li>
+                                <p><b class="orangeBox">I can {{ skillverb }}</b></p>
+                            </li>
+                            <li>
+                                <input id="scoreInput" name="score" type="text" placeholder="Score"/>
+                            </li>
+                            <li>
+                                <p><b class="orangeBox">{{ skillmetric }}</b></p>
+                            </li>
+                            <br>
+                            <input type="submit" value="Am I Average?">
+
+                            <!-- This is a hidden value that will be sent along with the form -->
+                            <input type="hidden" name="skill_name" value="{{ skillname }}">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div id="Picture_and_desc" class="col-8 menu">
+                <ul>
+                    <li><label style="border: solid 3px #E76F51;"><h3>Performance Graph</h3></label></li>
+                    <li><img alt="Number Line" src="{{ picture }}"/></li>
+                    <li><p><br>{{ description }}</p></li>
+                </ul>
+            </div>
+            <div class="col-3 menu">
+                <br><form action="https://amiaverage.herokuapp.com/login" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Login"></li>
+					</ul>
+				</form>
+                <form action="https://amiaverage.herokuapp.com" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Home"></li>
+					</ul>
+				</form>
 			</div>
-
-			<div id="MainText" class="tealBoxLeft">
-				<p class="whiteText"><b>Enter your score for <b class="orangeBox">{{ skillname }}</b> to find out how average you truly are!</b></p>
-				<br>
-
-		<!--This is the main form for sending info to the results page-->
-			<form action="https://amiaverage.herokuapp.com/results" method="post" class="forms" onsubmit="check_num_ge_zero()">
-				<p class="whiteText"><b>I can </b> <b class="orangeBox">{{ skillverb }}</b>
-				<input style="width: 10%; height: 25px" name="score" type="text" placeholder="Score" /> 
-                <b class="orangeBox">{{ skillmetric }}</b></p><br>
-				<!--This is a hidden value that will be sent along with the form-->
-				<input type="hidden" name="skill_name" value="{{ skillname }}">
-				<input type="submit" class="yellowBox" value="Am I Average?" style="font-family: Times New Roman; font-size: 16px">
-			</form>
-
-				<br>
-			</div>
-
-			<div class="tealBoxLeft">
-				<p>Congratulations! You are {rating}!</p>
-
-				<table>
-					<tbody>
-						<tr>
-						<td class="yellowBox">Just Awful</td>
-						<td class="goldBox">Okay</td>
-						<td class="orangeBox">Average</td>
-						<td class="goldBox">Pretty Good</td>
-						<td class="yellowBox">Damn Girl</td>
-						</tr>
-						<tr>
-						<td class="yellowOutline">{num}{metric}</td>
-						<td class="goldOutline">{num}{metric}</td>
-						<td class="orangeOutline">{num}{metric}</td>
-						<td class="goldOutline">{num}{metric}</td>
-						<td class="yellowOutline">{num}{metric}</td>
-						</tr>
-					</tbody>
-				</table>
-				<br>
-				<a href="https://amiaverage.herokuapp.com/results"><button class="yellowBox" style="font-family: Times New Roman; font-size: 16px">See more details</button></a>
-			</div>
-
-        </body>
-
+		</div>
+    </body>
 </html>
