@@ -7,44 +7,54 @@
 	</head>
 
 	<body>
-        <a href="https://amiaverage.herokuapp.com/mypage">
-            <button class="yellowBox" style="float:right; width:10%; margin:20px 20px 20px 5px">Admin Login</button></a>
-        <a href="https://amiaverage.herokuapp.com">
-            <button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px">Home</button></a>
-        <br><br><br><br>
-        
-        <div style="width:500px; float: left">
-            <div id="TopText" class="titleBox" style="width:500px; text-align:center;">
-                <h2>In terms of {{skill_name}}, Am I Average?</h2>
-            </div>
-            <div class="titleBox" style="width:500px; text-align:center;"> 
-                <br>
-                <h1 id="result_text" class="orangeBox" style="width:480px">ALMOST</h1>
-                <p>The score you entered is: {{score}}</p>
-                <br>
-            </div>
-            <br>
-            <div id="interpretation" class="orangeOutline" style="width:480px;">
-                <h2> What does this mean? </h2>
-                    <p> Compared to other<!--{{count_responses}}--> respondents, you are in the {{calc_percentile}}.
-                        This means that out of a group of 100, {{top_perc}}% scored above you and {{calc_percentile}}% scored below you.
-                    </p>
-                    <p>level1: {{ level1 }}</p>
-                    <p>level2: {{ level2 }}</p>
-                    <p>level3: {{ level3 }}</p>
-                    <p>level4: {{ level4 }}</p>
-                    <p>level5: {{ level5 }}</p>
-            </div>
-        </div>
+        <div id="MainText" class="header">
+			<h1>AM I AVERAGE</h1>
+			<h4><i>Find out how you stack up against the average Joe</i></h4>
+		</div>
 
-        <div id="graph_div" class="tealBoxRight" style = "height:350px; width:500px">
-            <img id = "graph" src="data:image/png;base64,{{ plot_url }}" class="yellowOutline" width=480px height=280px >
-            <a href="https://amiaverage.herokuapp.com/enterInfo">
-                <button class="navigationButton" style="width:175px">Enter a different score</button>
-            </a>	
-            <a href="https://amiaverage.herokuapp.com">
-                <button class="navigationButton" style="width:175px">Browse other skills</button>
-            </a>	
-        </div>
+        <div class="row">
+			<div class="col-1"></div>
+			<div class="col-8 menu">
+                <ul>
+                    <li>
+                        <label style="border: solid 3px #E76F51;"><h3>Results for {{skillname}}</h3></label><br>
+                        <h1 id="result_text" class="orangeBox" style="margin:auto">{{level}}</h1>
+                        <p>The score you entered is: {{score}}</p>
+                    </li>
+                    <li>
+                        <label style="border: solid 3px #E76F51;"><h3>Interpretation</h3></label>
+                        <div style="padding-left:5%">
+                            <p style="text-align:left"> Compared to other respondents, you are in approximately the {{calc_percentile}}.
+                                This means that out of a group of 100, {{top_perc}}% scored above you and {{calc_percentile}}% scored below you.
+                            </p>
+                            <p class="yellowBox" style="color:black; text-align:left; ">Beginner: {{ level1 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left;">Novice: {{ level2 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left;">Average: {{ level3 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left;">Very Good: {{ level4 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left;">Excellent: {{ level5 }}</p>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div id="graph_div" class="col-8 menu">
+                <ul>
+                    <li><label style="border: solid 3px #E76F51;"><h3>Performance Graph</h3></label></li>
+                    <li><img id="graph" alt="Number Line" src="data:image/png;base64,{{ plot_url }}"/></li>
+                </ul>
+            </div>
+            <div class="col-3 menu">
+                <br><form action="https://amiaverage.herokuapp.com/login" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Login"></li>
+					</ul>
+				</form>
+                <form action="https://amiaverage.herokuapp.com" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Home"></li>
+					</ul>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>
