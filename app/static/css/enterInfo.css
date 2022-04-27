@@ -82,6 +82,8 @@ body {
 	border: 1px white solid;
 	text-align: center;
 	padding: 5%;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
 }
 
 .menu li {
@@ -103,75 +105,6 @@ body {
 }
   
 .menu li input:hover {
-	text-decoration: none;
-	background-color: #e6d4a6;
-}
-
-.navigation li {
-	list-style: none;
-	color: black;
-	padding-left: 0; 
-}
-.navigation li a {
-	text-decoration: none;
-	display: block;
-	list-style:none;
-	background-color :#E9C46A;
-	color: black;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	text-align: center;
-	width: 90%;
-	margin: 5%; 
-	padding: 5%;
-}
-
-.navigation li a:hover {
-	text-decoration: none;
-	background-color: #e6d4a6;
-}
-
-.options ul li label {
-	background-color: #2A9D8F;
-	border: solid 3px #E9C46A;  
-	color: white; 
-	padding: 0%; 
-	margin: 5%; 
-	text-align: center;
-	display: block;
-	list-style:none;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	text-align: center;
-	width: 90%;
-}
-
-.options ul {
-	background-color: #2A9D8F;
-	color: white;  
-	margin: 5%;  
-	border: 1px white solid;
-	text-align: center;
-	padding: 5%;
-}
-
-.options li {
-	list-style: none;
-	color: whitesmoke;
-	padding-left: 0; 
-}
-
-.options li a {
-	text-decoration: none;
-	display: block;
-	background-color :#E9C46A;
-	color: black;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	text-align: center;
-	width: 90%;
-	margin: 5%; 
-	padding: 3%;
-}
-  
-.options li a:hover {
 	text-decoration: none;
 	background-color: #e6d4a6;
 }
