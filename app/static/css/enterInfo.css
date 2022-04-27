@@ -143,6 +143,18 @@ body {
 	max-width: 80%; 
 }
 
+.yellowBox {
+	background-color: #F4A261;
+	border: solid whitesmoke 1px; 
+	color: black; 
+	padding: 1%;
+	margin:1%;  
+	text-align: left;
+	font-weight: bold;
+	width: 50%; 
+	max-width: 80%; 
+}
+
 #scoreInput {
 	background-color: whiteSmoke;
 	color: black;
@@ -152,6 +164,7 @@ body {
 	padding:1%;  
 	margin:auto; 
 }
+
 
 /*will delete the following before production and after finishing responsive design */
 
@@ -165,10 +178,6 @@ button:hover {
 	background-color: #E76F51;
 }
 
-.yellowBox:hover {
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	background-color: #E76F51;
-}
 
 .orangeListItem:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -249,16 +258,6 @@ button:hover {
 	text-align: center;
 	margin-left: auto;
     margin-right: auto;
-	font-weight: bold;
-}
-
-.yellowBox {
-	background-color: #E9C46A;
-	border: solid whitesmoke 1px; 
-	color: black; 
-	padding: 5px; 
-	margin: 5px; 
-	text-align: center;
 	font-weight: bold;
 }
 
