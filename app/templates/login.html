@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <!--For more info on how to actually collect user input, got to https://www.w3schools.com/html/html_forms.asp 
 and then look at how to use php language-->
-
         <head>
-
             <link rel="stylesheet" href="../static/css/enterInfo.css">
             <!-- href="../static/css/enterInfo.css" -->
             <title> AmIAverage? </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <!-- -->
             <script type = "text/JavaScript">
                 // function handleSubmit() { return false; }
@@ -22,33 +20,44 @@ and then look at how to use php language-->
                     passwordBox.value="";
                 }
       		</script>
-
         </head>
 
         <body>
-
-            <a href="https://amiaverage.herokuapp.com">
-                <button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px">Home</button>
-            </a>
-            
-            <div class="orangeBox" style="width:400px; margin: 20px auto auto auto">
-                <h2>Login to view your skill history</h2>
+            <div id="MainText" class="header">
+                <h1>AM I AVERAGE</h1>
+                <h4><i>Find out how you stack up against the average Joe</i></h4>
             </div>
-            <br>
-
-            <div class="yellowBox" style="width:400px; height:140px; margin:auto">
-            <!--<form method="POST" action="https://amiaverage.herokuapp.com/mypage">-->
-            <form method="POST" action="https://amiaverage.herokuapp.com/login">
-            <fieldset>
-                <br>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Username"><br><br>
-                <label for="password">Password:</label>
-                <input type="text" id="password" name="password" placeholder="Password"><br><br>
-                <input type="submit" value="Login" onclick="LoginError();ClearText();" name="ok">
-            </fieldset>
-            </form> 
-            </div>
-
+    
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-8 category">
+                    <ul>
+                        <li>
+                            <h3>Login to view your skills</h3>
+                        </li>
+                        <li>
+                            <!--<form method="POST" action="https://amiaverage.herokuapp.com/mypage">-->
+                            <form method="POST" action="https://amiaverage.herokuapp.com/login">
+                                    <label for="username">Username:</label>
+                                    <input type="text" id="username" name="username" placeholder="Username"><br>
+                                    <label for="password">Password:</label>
+                                    <input type="text" id="password" name="password" placeholder="Password"><br>
+                                    <div id="loginButton">
+                                        <input type="submit" value="Login" onclick="LoginError();ClearText();" name="ok">
+                                    </div>
+                            </form> 
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-3 menu">
+                    <br>
+                    <form action="https://amiaverage.herokuapp.com" method="post" class="forms">
+                        <ul>
+                            <li><input type="submit" name="action" value="Home"></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>    
 	</body>
 </html>
