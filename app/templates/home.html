@@ -7,11 +7,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
-	<body>
-		<div id="MainText" class="header">
+		<body>
+			<div id="MainText" class="header">
 			<h1>AM I AVERAGE</h1>
-			<h4><i>Find out how you stack up against
-				the average Joe</i></h4>
+			<h4><i>Find out how you stack up against the average Joe</i></h4>
 		</div>
 		
 		<div class="row">
@@ -29,24 +28,25 @@
 				</form>
 			</div>
 			<div class="col-1"></div>
-			<div class="col-6 options">
-				<ul>
-					<li><label><h3>Want to suggest a new skill?</h3></label></li>
-					<li><a href="https://amiaverage.herokuapp.com/newcategory">
-						Create a Skill</a></li>
-					<br><li><label><h3>Forgot how average you are?</h3></label></li>
-					<li><a href="https://amiaverage.herokuapp.com/mypage">
-						View My Skills</a></li>
-				</ul>
+			<div class="col-6 menu">
+				<form action="https://amiaverage.herokuapp.com/enterInfo" method="post" class="forms">
+					<ul>
+						<li><label><h3>Want to suggest a new skill?</h3></label></li>
+						<li><input type="submit" name="action" value="Create a Skill"></li>
+						<br>
+						<li><label><h3>Forgot how average you are?</h3></label></li>
+						<li><input type="submit" name="action" value="View My Skills"></li>
+					</ul>
+				</form>
 			</div>
 			<div class="col-3"></div>
-			<div class="col-4 navigation">
-				<ul>
-					<li><a href="https://amiaverage.herokuapp.com/login">
-					Admin Login</a></li>
-				</ul>
+			<div class="col-4 menu">
+				<form action="https://amiaverage.herokuapp.com/login" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Admin Login"></li>
+					</ul>
+				</form>
 			</div>
 		</div>
 	</body>
-
 </html>
