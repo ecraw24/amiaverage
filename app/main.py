@@ -299,8 +299,10 @@ def plot_graph(level_list, unit):
     plt.axis('off')
 
     # units label
-    plt.annotate(unit, (0,0))
+    plt.annotate(unit, ((level_list[0]-level_list[4]*0.1+level_list[4]+level_list[4]*0.1)/2),2.5), horizontalalignment='center')
 
+
+    # convert plot for display
     plt.savefig(img, format='png')
     plt.close()
     img.seek(0)
