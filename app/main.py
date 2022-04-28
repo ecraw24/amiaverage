@@ -275,7 +275,7 @@ def plot_graph(level_list):
     # horizontal line, default to middle (5 on 0-10 canvas)
     y = 5
     height = 1
-    plt.hlines(y, level_list[0]-1, level_list[4]+1)
+    plt.hlines(y, level_list[0]-level_list[4]*0.5, level_list[4]+level_list[4]*0.5)
 
     for level in level_list:
 
