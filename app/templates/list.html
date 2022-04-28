@@ -3,45 +3,44 @@
 	<head>
 		<link rel="stylesheet" href="../static/css/enterInfo.css">	
 		<title>MySkills</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-        <a href="https://amiaverage.herokuapp.com">
-            <button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px">Home</button></a>
-        <br><br><br><br>
-        
-        <div id="SkillsList" class="tealBoxLeft" style="height:380px; width:240px">
-			<div id="myskillsheader" class="yellowOutline">
-			    <p>My Skills</p>
+        <div id="MainText" class="header">
+			<h1>AM I AVERAGE</h1>
+			<h4><i>Find out how you stack up against the average Joe</i></h4>
+		</div>
+		
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-4 menu">
+				<form action="https://amiaverage.herokuapp.com/enterInfo" method="post" class="forms">
+					<ul>
+						<li><label><h3>My Skills</h3></label></li>
+						<li><input type="submit" name="action" value="IQ"></li>
+						<li><input type="submit" name="action" value="Bench Press"></li>
+						<li><input type="submit" name="action" value="Hot Dog Eating"></li>
+						<li><input type="submit" name="action" value="Run a Mile"></li>
+						<li><input type="submit" name="action" value="Fishing"></li>
+					</ul>
+				</form>
 			</div>
-            <br>
-            <a href="https://amiaverage.herokuapp.com">
-                <button class="yellowBox" style="width:200px; margin:10px">IQ</button></a>
-            <a href="https://amiaverage.herokuapp.com">
-                <button class="yellowBox" style="width:200px; margin:10px">Bench Press</button></a>
-            <a href="https://amiaverage.herokuapp.com">
-                <button class="yellowBox" style="width:200px; margin:10px">Hot Dog Eating</button></a>
-            <a href="https://amiaverage.herokuapp.com">
-                <button class="yellowBox" style="width:200px; margin:10px">Mile Run Time</button></a>
-            
-            <br><br>
-            <a href="https://amiaverage.herokuapp.com">
-                <button style="width:150px; margin:10px">Print all my skills</button></a>
-        </div>
-        <div class="tealBoxLeft" style="height:380px; width:500px; margin-left:100px">
-            <div id="Currskilltitle" class="titleBox" style="background-color:#2A9D8F">
-                <p> {{ skill_name }}</p>
-            </div>	
-            <br>
-            <div id="ImageGraphic" class="yellowOutline" style="height:200px;">
-                <p> {{ skill_picture }}</p>
-            </div>
-            <br>
-            <div id="score" class="descriptionBox" style="background-color:#2A9D8F">
-                <p>Your most recent score is: {{ skill_score }}</p>
-            </div>
-            <br>
-
-        </div>
+			<div class="col-1"></div>
+			<div class="col-8 menu">
+                <ul>
+                    <li><label style="border: solid 3px #E76F51;"><h3>{{skillname}}</h3></label></li>
+                    <li><img id="graph" alt="Number Line" src="data:image/png;base64,{{ plot_url }}"/></li>
+                    <li><p>Your most recent score is: {{score}}</p></li>
+                </ul>
+			</div>
+			<div class="col-3"></div>
+			<div class="col-3 menu">
+                <form action="https://amiaverage.herokuapp.com" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Home"></li>
+					</ul>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>
-		
