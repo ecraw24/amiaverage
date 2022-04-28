@@ -299,7 +299,7 @@ def plot_graph(level_list, unit):
     plt.axis('off')
 
     # units label
-    plt.annotate(unit, ((5/2.5), horizontalalignment='center')
+    plt.annotate(unit, ((5,2.5), horizontalalignment='center')
 
 
     # convert plot for display
