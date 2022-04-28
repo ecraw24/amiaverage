@@ -219,8 +219,6 @@ def results_page():
 #########
 
 
-
-
 #function for rendering the results page
 def render_results_page(html_page, score, action):
     #query the skillsinfo table for the row with skill_name = action
@@ -228,20 +226,27 @@ def render_results_page(html_page, score, action):
     if row == NONE:
         return render_template("results.html", score='No info entered')
     else:
+        #Mediocre...
         level1 = int(row.level1)
-        level2 = int(row.level2)
+        #below average
+        level2 = int(row.level2) 
+        #slightly below average
         level3 = int(row.level3)
+        #slightly above average
         level4 = int(row.level4)
+        #above average
         level5 = int(row.level5)
+        #Superb!
         skillname = row.skill_name
-        percentile = get_percentile(int(score), [level1, level2, level3, level4, level5])
+        (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
         plot_url = plot_graph([level1, level2, level3, level4, level5])
-        return render_template(html_page, score=score, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
+        return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
 
-#returns the percentile that the score achieved for a skill
+#returns the percentile and corresponding string that the score achieved for a skill
 def get_percentile(score, list):
     place = 0
     #loop sets 'place' to 0 if below level1, 1 if between 1 and 2, ..., 5 if greater than level5
+    strings = ["Mediocre...", "Below Average", "Slightly Below Average", "Slightly Above Average", "Above Average",  "Superb!"]
     for i, elt in enumerate(list):
         if score > elt:
             place = i + 1
@@ -250,12 +255,12 @@ def get_percentile(score, list):
     #now, we calculate a rough percentage
         #this is very poor, just serving as a temporary placeholder
     if place == 5:
-        return 100
+        return (100, strings[place])
     if place == 0:
-        return 0
+        return (0, strings[place])
     prev_lvl = list[place-1]
     next_lvl = list[place]
-    return (place * 20) + (score // (next_lvl - prev_lvl))
+    return ((place * 20) + (score // (next_lvl - prev_lvl)), strings[place])
 
 def plot_graph(level_list):
     img = BytesIO()
