@@ -209,7 +209,8 @@ def results_page():
     if request.method == 'POST':
         score = request.form['score']
         skillname = request.form['skill_name']
-        return render_results_page("results.html", score, skillname)
+        unit = request.form['unit_of_measurement']
+        return render_results_page("results.html", score, skillname, unit)
     else:
         return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
 
@@ -220,7 +221,7 @@ def results_page():
 
 
 #function for rendering the results page
-def render_results_page(html_page, score, action):
+def render_results_page(html_page, score, action, unit):
     #query the skillsinfo table for the row with skill_name = action
     row = skillsinfo.query.filter_by(skill_name=action).first()
     if row == NONE:
@@ -239,9 +240,9 @@ def render_results_page(html_page, score, action):
         #Superb!
         skillname = row.skill_name
         (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
-        plot_url = plot_graph([level1, level2, level3, level4, level5])
+        plot_url = plot_graph([level1, level2, level3, level4, level5], unit)
         return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
-
+ 
 #returns the percentile and corresponding string that the score achieved for a skill
 def get_percentile(score, list):
     place = 0
@@ -263,7 +264,7 @@ def get_percentile(score, list):
     return ((place * 20) + (score // (next_lvl - prev_lvl)), strings[place])
 
 # plots results image, returns bit64 string as html input
-def plot_graph(level_list):
+def plot_graph(level_list, unit):
     img = BytesIO()
 
     # set up the figure
@@ -283,19 +284,22 @@ def plot_graph(level_list):
         plt.vlines(level, y - height / 2., y + height / 2.)
 
         # add number labels
-        plt.text(level-0.1, y-1, str(level), verticalalignment='center_baseline')
+        plt.text(level-0.5, y-1, str(level), verticalalignment='center_baseline')
 
 
     # draw a point on the line
     px = 4
     plt.plot(px,y, 'ro', ms = 15, mfc = 'r')
 
-    # add an arrow
+    # add an arrow to point
     plt.annotate('Your score', (px,y), xytext = (px - 1, y + 1), 
                 arrowprops=dict(facecolor='black', shrink=0.1), 
                 horizontalalignment='right')
 
     plt.axis('off')
+
+    # units label
+    plt.annotate(unit, (0,0))
 
     plt.savefig(img, format='png')
     plt.close()
