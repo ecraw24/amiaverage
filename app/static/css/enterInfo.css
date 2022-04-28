@@ -352,19 +352,6 @@ button:hover {
 	width: 250px; 
 }
 
-.orangeBox {
-	background-color: #E76F51;
-	border: solid whitesmoke 1px; 
-	color: black; 
-	padding: 5px; 
-	margin: 10px; 
-	width: 20%; 
-	text-align: center;
-	margin-left: auto;
-    margin-right: auto;
-	font-weight: bold;
-}
-
 .goldBox {
 	background-color: #F4A261;
 	border: solid whitesmoke 1px; 
