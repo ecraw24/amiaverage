@@ -272,14 +272,21 @@ def plot_graph(level_list):
     ax.set_ylim(0,10)
 
     # draw lines
-    xmin = 1
-    xmax = 9
+    x1 = 1
+    x2=3
+    x3=5
+    x4=7
+    x5 = 9
+
     y = 5
     height = 1
 
-    plt.hlines(y, xmin, xmax)
-    plt.vlines(xmin, y - height / 2., y + height / 2.)
-    plt.vlines(xmax, y - height / 2., y + height / 2.)
+    plt.hlines(y, x1-1, x5+1)
+    plt.vlines(x1, y - height / 2., y + height / 2.)
+    plt.vlines(x2, y - height / 2., y + height / 2.)
+    plt.vlines(x3, y - height / 2., y + height / 2.)
+    plt.vlines(x4, y - height / 2., y + height / 2.)
+    plt.vlines(x5, y - height / 2., y + height / 2.)
 
     # draw a point on the line
     px = 4
@@ -291,8 +298,11 @@ def plot_graph(level_list):
                 horizontalalignment='right')
 
     # add numbers
-    plt.text(xmin - 0.1, y, level_list[0], horizontalalignment='right')
-    plt.text(xmax + 0.1, y, level_list[4], horizontalalignment='left')
+    plt.text(x1-0.1, y-1, '1', verticalalignment='center_baseline')
+    plt.text(x2-0.1, y-1, '3', verticalalignment='center_baseline')
+    plt.text(x3-0.1, y-1, '5', verticalalignment='center_baseline')
+    plt.text(x4-0.1, y-1, '7', verticalalignment='center_baseline')
+    plt.text(x5-0.1, y-1, '9', verticalalignment='center_baseline')
 
     plt.axis('off')
 
