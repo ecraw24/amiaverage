@@ -20,32 +20,21 @@ CREATE TABLE skillsinfo
 		CONSTRAINT skill_pk PRIMARY KEY (id)
 	);
 
---CREATE TABLE suggestions
---	(
---		skill_name varchar(50) NOT NULL,
---		skill_verb varchar(30),
---		skill_metric varchar(30),
---		unit_of_measurement varchar(30),
---		descrip varchar(255)
---	);
+CREATE TABLE suggestions
+	(
+		skill_name varchar(50) NOT NULL,
+		skill_verb varchar(30),
+		skill_metric varchar(30),
+		unit_of_measurement varchar(30),
+		descrip varchar(255)
+	);
 
 
 
 -- "http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg"
 -- DO THINGS HERE
 
--- Inserts for skills detail
---INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, descrip)
---VALUES ('1', 'Fishing', 'fish', 'catch', '', 'Fishing is the activity of using a rod and bait to catch aquatic life');
---INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, descrip)
---VALUES ('2', 'Hot Dog Eating', 'hot dogs in an hour', 'eat', '', 'Hot Dog Eating is a competitive sport in which people try to consume as many hot dogs as possible');
---INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, descrip)
---VALUES ('3', 'IQ', 'IQ', 'perform tests for a', '', 'Intelligence Quotient (IQ) is a standard measure of intellect');
---INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, descrip)
---VALUES ('4', 'Bench Press', 'bench', 'lbs for 3 reps', 'https://cdn2.picryl.com/photo/2011/06/04/hiroko-yanai-bench-presses-99-pounds-during-the-2011-36d1e9-1600.jpg', 'A bench press is a compound a bodybuilding and weightlifting exercise in which a lifter lies on a bench with the feet on the floor and raises a weight with both arms.');
---INSERT INTO skillsdetail (skillid, skill_name, skill_metric, skill_verb, picture, descrip)
---VALUES ('5', 'Run a Mile', 'run a', 'minute mile', 'http://cdn.mos.cms.futurecdn.net/v44n2mBJgaRoCkkFGjDtRP.jpeg', 'Running is the activity of moving fast on foot, especially as a sport. The 1-mile run is a common measurement of aerobic fitness.');
--- inserts for skillsinfo
+-- for skillsinfo
 INSERT INTO skillsinfo (id, skill_name, skill_verb, skill_metric, unit_of_measurement, picture, descrip, level1, level2, level3, level4, level5)
 VALUES ('1', 'Fishing', 'catch',  'fish', 'pounds', 'https://www.takemefishing.org/getmedia/02981128-b7e1-4ea0-adbd-75bc5b2c7ba0/homehero_woman.jpg', 'Fishing is the activity of using a rod and bait to catch aquatic life.', '5', '10', '15', '20', '25');
 INSERT INTO skillsinfo (id, skill_name, skill_verb, skill_metric, unit_of_measurement, picture, descrip, level1, level2, level3, level4, level5)
