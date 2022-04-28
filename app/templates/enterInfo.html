@@ -8,11 +8,10 @@
         <script type="text/Javascript">
             function check_num_ge_zero()
             {
-                var inp = document.getElementsByName("score")
-                if (isNaN(inp) || Number(inp) < 0){
+                var inp = document.getElementsByName("score")[0].value;
+                if (isNaN(inp) || Number(inp) < 0) {
                     alert("Invalid Score Please Submit a Positive Number");
                     event.preventDefault();
-                    break;
                 }
             }
         </script>
@@ -35,7 +34,7 @@
                     </li>
                     <li>
                         <!-- This is the main form for sending info to the results page -->
-                        <form action="https://amiaverage.herokuapp.com/results" method="post" class="forms" onsubmit="check_num_ge_zero()">
+                        <form action="https://amiaverage.herokuapp.com/results" method="post" class="forms" onsubmit="check_num_ge_zero();">
                             <li>
                                 <p><b class="orangeBox">I can {{ skillverb }}</b></p>
                             </li>
@@ -46,7 +45,7 @@
                                 <p><b class="orangeBox">{{ skillmetric }}</b></p>
                             </li>
                             <br>
-                            <input type="submit" value="Am I Average?">
+                            <input type="submit" id="submit" value="Am I Average?">
 
                             <!-- This is a hidden value that will be sent along with the form -->
                             <input type="hidden" name="skill_name" value="{{ skillname }}">
