@@ -269,7 +269,7 @@ def plot_graph(level_list):
     # set up the figure
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.set_xlim(level_list[0]-5,level_list[4]+5)
+    ax.set_xlim(level_list[0]-level_list[4]*0.1,level_list[4]+level_list[4]*0.1)
     ax.set_ylim(0,10)
 
     # horizontal line, default to middle (5 on 0-10 canvas)
