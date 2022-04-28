@@ -3,17 +3,31 @@
     <head>
         <link rel="stylesheet" href="../static/css/enterInfo.css">
         <title> AmIAverage? </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
-        
-        
-
-        <div class="goldBox" style="width:300px; height: 100px; margin: auto;"> 
-            <p>Your suggestion has been submitted!</p>
-            <a href="https://amiaverage.herokuapp.com">
-                <button class="yellowBox" style="width:100px; margin:auto;">Home</button></a>
+        <div id="MainText" class="header">
+            <h1>AM I AVERAGE</h1>
+            <h4><i>Find out how you stack up against the average Joe</i></h4>
         </div>
+
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-8 category">
+                <ul>
+                    <li><h3>Your suggestion has been submitted!</h3></li>
+                </ul>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-3 menu">
+                <form action="https://amiaverage.herokuapp.com" method="post" class="forms">
+                    <ul>
+                        <li><input type="submit" name="action" value="Home"></li>
+                    </ul>
+                </form>
+            </div>
+        </div>    
    
     </body>
 
