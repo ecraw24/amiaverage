@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="../static/css/enterInfo.css">
         <title> AmIAverage? </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type = "text/JavaScript">
             window.addEventListener('load', function () {
                 message = document.getElementById("message");
@@ -34,35 +35,56 @@
     </head>
 
     <body>
+        
+        <div id="MainText" class="header">
+			<h1>AM I AVERAGE</h1>
+			<h4><i>Find out how you stack up against the average Joe</i></h4>
+		</div>
 
-        <a href="https://amiaverage.herokuapp.com/mypage">
-            <button class="yellowBox" style="float:right; width:10%; margin:20px 20px 20px 5px">Admin Login</button></a>
-        <a href="https://amiaverage.herokuapp.com">
-            <button class="yellowBox" style="float:right; width:10%; margin:20px 5px 20px 20px">Home</button></a>
-        <br><br><br><br>
-
-        <p id="message">{{ message }}</p>
-
-        <div id="enterCatBox" class="goldBox" style="width:300px; margin:auto">
-            <h2>Suggest a Category</h2>
-        </div>
-        <br>
-        <div id="enterInfoBox" class="yellowBox" style="width:300px; margin:auto;">
-            <form style="margin:20px" method="post" action="/submit" onsubmit="SubmitError();">
-            <!--<form style="margin:20px" onclick="SubmitError();">-->
-                <label for="categoryName" style="float:left">Category Name</label><br>
-                    <input type="text" id="textBox1" name="categoryName" placeholder="Category Name" style="float:left; width:250px"><br><br>
-                <label for="verb" style="float:left">Verb</label><br>
-                    <input type="text" id="textBox2" name="verb" placeholder="Verb" style="float:left; width:250px"><br><br>
-                <label for="metric" style="float:left">Metric</label><br>
-                    <input type="text" id="textBox3" name="metric" placeholder="Metric" style="float:left; width:250px"><br><br>
-                <label for="unit_of_measurement" style="float:left">Unit of Measurement</label><br>
-                    <input type="text" id="textBox4" name="unit_of_measurement" placeholder="Unit" style="float:left; width:250px"><br><br>
-                <label for="desc" style="float:left">Description</label><br>
-                    <textarea id="textBox5" name="desc" style="float:left; width:250px; font-family: Arial;" placeholder="Describe the category in a sentence or two"></textarea>
-                <br><br><br>
-                <input type="submit" id="submit" value="Submit Category" style="margin: 5px" name="ok">
-            </form> 
-        </div>
+        <div class="row">
+			<div class="col-5"></div>
+			<div class="col-8 category">
+                <ul>
+                    <li>
+                        <p id="message">{{ message }}</p>
+                        <h3>Suggest a Skill</h3>
+                    </li>
+                    <li>
+                        <div id="enterInfoBox"
+                            <form method="post" action="/submit" onsubmit="SubmitError();">
+                            <!--<form style="margin:20px" onclick="SubmitError();">-->
+                                <label for="categoryName">Skill Name</label>
+                                    <input type="text" id="textBox1" name="categoryName" placeholder="Enter the name of the skill"><br>
+                                <label for="verb">Verb</label>
+                                    <input type="text" id="textBox2" name="verb" placeholder="Enter the action related to the skill"><br>
+                                <label for="metric">Metric</label>
+                                    <input type="text" id="textBox3" name="metric" placeholder="Enter the metric"><br>
+                                <label for="unit_of_measurement">Unit of Measurement</label>
+                                    <input type="text" id="textBox4" name="unit_of_measurement" placeholder="Enter the unit of measurement"><br>
+                                <label for="desc">Description</label>
+                                    <textarea id="textBox5" name="desc" placeholder="Describe the category in a sentence or two"></textarea>
+                                <br>
+                                <div id="submitCategory">
+                                    <input type="submit" id="submit" value="Submit Skill" name="ok">
+                                </div>
+                            </form> 
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-3 menu">
+                <br><form action="https://amiaverage.herokuapp.com/login" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Login"></li>
+					</ul>
+				</form>
+                <form action="https://amiaverage.herokuapp.com" method="post" class="forms">
+					<ul>
+						<li><input type="submit" name="action" value="Home"></li>
+					</ul>
+				</form>
+			</div>
+		</div>    
     </body>
 </html>
