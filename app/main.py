@@ -240,7 +240,7 @@ def render_results_page(html_page, score, action):
         unit = row.skill_metric
         skillname = row.skill_name
         (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
-        plot_url = plot_graph([level1, level2, level3, level4, level5], unit)
+        plot_url = plot_graph([level1, level2, level3, level4, level5], score)
         return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
  
 #returns the percentile and corresponding string that the score achieved for a skill
@@ -264,7 +264,7 @@ def get_percentile(score, list):
     return ((place * 20) + (score // (next_lvl - prev_lvl)), strings[place])
 
 # plots results image, returns bit64 string as html input
-def plot_graph(level_list, unit):
+def plot_graph(level_list, score):
     img = BytesIO()
 
     # set up the figure
@@ -288,7 +288,7 @@ def plot_graph(level_list, unit):
 
 
     # draw a point on the line
-    px = 4
+    px = score
     plt.plot(px,y, 'ro', ms = 15, mfc = 'r')
 
     # add an arrow to point
