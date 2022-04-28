@@ -237,7 +237,7 @@ def render_results_page(html_page, score, action):
         #above average
         level5 = int(row.level5)
         #Superb!
-        unit = skill_metric
+        unit = row.skill_metric
         skillname = row.skill_name
         (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
         plot_url = plot_graph([level1, level2, level3, level4, level5], unit)
