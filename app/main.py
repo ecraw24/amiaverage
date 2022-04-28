@@ -209,7 +209,6 @@ def results_page():
     if request.method == 'POST':
         score = request.form['score']
         skillname = request.form['skill_name']
-        unit = request.form['unit_of_measurement']
         return render_results_page("results.html", score, skillname, unit)
     else:
         return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
@@ -221,7 +220,7 @@ def results_page():
 
 
 #function for rendering the results page
-def render_results_page(html_page, score, action, unit):
+def render_results_page(html_page, score, action):
     #query the skillsinfo table for the row with skill_name = action
     row = skillsinfo.query.filter_by(skill_name=action).first()
     if row == NONE:
@@ -238,6 +237,7 @@ def render_results_page(html_page, score, action, unit):
         #above average
         level5 = int(row.level5)
         #Superb!
+        unit = row.unit_of_measurement
         skillname = row.skill_name
         (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
         plot_url = plot_graph([level1, level2, level3, level4, level5], unit)
