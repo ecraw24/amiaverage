@@ -262,6 +262,7 @@ def get_percentile(score, list):
     next_lvl = list[place]
     return ((place * 20) + (score // (next_lvl - prev_lvl)), strings[place])
 
+# plots results image, returns bit64 string as html input
 def plot_graph(level_list):
     img = BytesIO()
 
@@ -271,22 +272,19 @@ def plot_graph(level_list):
     ax.set_xlim(0,10)
     ax.set_ylim(0,10)
 
-    # draw lines
-    x1 = 1
-    x2=3
-    x3=5
-    x4=7
-    x5 = 9
-
+    # horizontal line, default to middle (5 on 0-10 canvas)
     y = 5
     height = 1
+    plt.hlines(y, level_list[0]-1, level_list[4]+1)
+    
+    for level in level_list:
 
-    plt.hlines(y, x1-1, x5+1)
-    plt.vlines(x1, y - height / 2., y + height / 2.)
-    plt.vlines(x2, y - height / 2., y + height / 2.)
-    plt.vlines(x3, y - height / 2., y + height / 2.)
-    plt.vlines(x4, y - height / 2., y + height / 2.)
-    plt.vlines(x5, y - height / 2., y + height / 2.)
+        # add vertical lines
+        plt.vlines(level, y - height / 2., y + height / 2.)
+
+        # add number labels
+        plt.text(level-0.1, y-1, str(level), verticalalignment='center_baseline')
+
 
     # draw a point on the line
     px = 4
@@ -296,13 +294,6 @@ def plot_graph(level_list):
     plt.annotate('Your score', (px,y), xytext = (px - 1, y + 1), 
                 arrowprops=dict(facecolor='black', shrink=0.1), 
                 horizontalalignment='right')
-
-    # add numbers
-    plt.text(x1-0.1, y-1, '1', verticalalignment='center_baseline')
-    plt.text(x2-0.1, y-1, '3', verticalalignment='center_baseline')
-    plt.text(x3-0.1, y-1, '5', verticalalignment='center_baseline')
-    plt.text(x4-0.1, y-1, '7', verticalalignment='center_baseline')
-    plt.text(x5-0.1, y-1, '9', verticalalignment='center_baseline')
 
     plt.axis('off')
 
