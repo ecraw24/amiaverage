@@ -20,14 +20,14 @@ CREATE TABLE skillsinfo
 		CONSTRAINT skill_pk PRIMARY KEY (id)
 	);
 
-CREATE TABLE suggestions
-	(
-		skill_name varchar(50) NOT NULL,
-		skill_verb varchar(30),
-		skill_metric varchar(30),
-		unit_of_measurement varchar(30),
-		descrip varchar(255)
-	);
+--CREATE TABLE suggestions
+--	(
+--		skill_name varchar(50) NOT NULL,
+--		skill_verb varchar(30),
+--		skill_metric varchar(30),
+--		unit_of_measurement varchar(30),
+--		descrip varchar(255)
+--	);
 
 
 

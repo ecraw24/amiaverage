@@ -19,20 +19,24 @@
                 <ul>
                     <li>
                         <label style="border: solid 3px #E76F51;"><h3>Results for {{skill_name}}</h3></label><br>
-                        <h5 id="result_text" class="orangeBox" style="margin:auto; ">{{level}}</h5>
+                        <h5 id="result_text" class="orangeBox" style="margin:auto; font-size:xx-large">{{level}}</h5>
                         <p>The score you entered is: {{score}}</p>
                     </li>
                     <li>
                         <label style="border: solid 3px #E76F51;"><h3>Interpretation</h3></label>
                         <div style="padding-left:5%">
                             <p style="text-align:left"> Compared to other respondents, you are in approximately the {{calc_percentile}}<sup>th</sup> percentile.
+<<<<<<< HEAD
                                 This means that out of a group of 100, {{top_perc}}% of people generally score above you and {{calc_percentile}}% of people generally score below you.
+=======
+                                This means that out of a group of 100, {{top_perc}}% of people scored above you and {{calc_percentile}}% of people scored below you.
+>>>>>>> 3604c12825ca2981aadbf4746dac5780ff27676d
                             </p>
-                            <p class="yellowBox" style="color:black; text-align:left; ">Beginner: {{ level1 }}</p>
-                            <p class="yellowBox" style="color:black; text-align:left;">Novice: {{ level2 }}</p>
-                            <p class="yellowBox" style="color:black; text-align:left;">Average: {{ level3 }}</p>
-                            <p class="yellowBox" style="color:black; text-align:left;">Very Good: {{ level4 }}</p>
-                            <p class="yellowBox" style="color:black; text-align:left;">Excellent: {{ level5 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left; margin:auto;">Beginner: {{ level1 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left; margin:auto;">Novice: {{ level2 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left; margin:auto;">Average: {{ level3 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left; margin:auto;">Very Good: {{ level4 }}</p>
+                            <p class="yellowBox" style="color:black; text-align:left; margin:auto;">Excellent: {{ level5 }}</p>
                         </div>
 
                     </li>
