@@ -209,9 +209,7 @@ def results_page():
     if request.method == 'POST':
         score = request.form['score']
         skillname = request.form['skill_name']
-        skillmetric = request.form['skill_metric']
-        skillunit = request.form['unit_of_measurement']
-        return render_results_page("results.html", score, skillname, skillmetric, skillunit)
+        return render_results_page("results.html", score, skillname)
     else:
         return render_template("results.html", score='No info entered', skill_name=skill_name, count_responses=count_responses, calc_percentile = calc_percentile, top_perc=top_perc, bottom_perc = bottom_perc)
 
@@ -241,6 +239,7 @@ def render_results_page(html_page, score, action, metric, unit):
         #Superb!
         unit = row.skill_metric
         skillname = row.skill_name
+        metric = row.unit_of_measurement
         (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
         plot_url = plot_graph([level1, level2, level3, level4, level5], int(score), metric, unit)
         return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
