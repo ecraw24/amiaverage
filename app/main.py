@@ -279,8 +279,8 @@ def plot_graph(level_list, score, metric, unit):
     y = 4
     height = 1
     plt.hlines(y, level_list[0]-level_list[4]*0.3, level_list[4]+level_list[4]*0.3, colors='#264653')
-    plt.arrow(level_list[0]-level_list[4]*0.3, y+0.01, -1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
-    plt.arrow(level_list[4]+level_list[4]*0.3, y+0.01, 1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
+    plt.arrow(level_list[0]-level_list[4]*0.3, y+0.01, -1,0, width = 0.3, ec='#264653', fc = '#264653', head_width = 0.2)
+    plt.arrow(level_list[4]+level_list[4]*0.3, y+0.01, 1,0, width = 0.3, ec='#264653', fc = '#264653', head_width = 0.2)
 
 
     for level in level_list:
@@ -294,8 +294,11 @@ def plot_graph(level_list, score, metric, unit):
 
     score_label = "Your score of " + str(score)
 
+    # case if score out of plot area
     if (score > level_list[4]+level_list[4]*0.25 or score < level_list[0]-level_list[4]*0.25):
         plt.annotate(score_label + " is off the chart!", (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,6), horizontalalignment='center', color ='#264653')
+    
+    # can plot within level 1-5 boundaries with some overflow on each side
     else:
         # draw a point on the line
         px = score
@@ -310,7 +313,7 @@ def plot_graph(level_list, score, metric, unit):
     plt.axis('off')
 
     # x axis label
-    unit_label = metric + ' (' + unit + ')'
+    unit_label =  '('+ unit + ')'
     plt.annotate(unit_label, (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,2), horizontalalignment='center', color ='#264653')
 
     # convert plot for display
