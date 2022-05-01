@@ -270,16 +270,16 @@ def plot_graph(level_list, score):
     # set up the figure
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.set_xlim(level_list[0]-level_list[4],level_list[4]+level_list[4])
+    ax.set_xlim(level_list[0]-level_list[4]*0.5,level_list[4]+level_list[4]*0.5)
     ax.set_ylim(0,10)
     fig.set_facecolor("#E9C46A")
 
     # horizontal line with end arrows, default to middle (5 on 0-10 canvas)
     y = 5
     height = 1
-    plt.hlines(y, level_list[0]-level_list[4]*0.5, level_list[4]+level_list[4]*0.5)
-    plt.arrow(level_list[0]-level_list[4]*0.5, y+0.01, -1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
-    plt.arrow(level_list[4]+level_list[4]*0.5, y+0.01, 1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
+    plt.hlines(y, level_list[0]-level_list[4]*0.3, level_list[4]+level_list[4]*0.3, colors='#264653')
+    plt.arrow(level_list[0]-level_list[4]*0.3, y+0.01, -1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
+    plt.arrow(level_list[4]+level_list[4]*0.3, y+0.01, 1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
 
 
     for level in level_list:
