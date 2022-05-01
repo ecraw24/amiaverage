@@ -271,7 +271,7 @@ def plot_graph(level_list, score):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_xlim(level_list[0]-level_list[4]*0.5,level_list[4]+level_list[4]*0.5)
-    ax.set_ylim(0,10)
+    ax.set_ylim(0,8)
     fig.set_facecolor("#E9C46A")
 
     # horizontal line with end arrows, default to middle (5 on 0-10 canvas)
@@ -288,12 +288,12 @@ def plot_graph(level_list, score):
         plt.vlines(level, y - height / 2., y + height / 2., colors= '#264653')
 
         # add number labels
-        plt.text(level, y-1, str(level), verticalalignment='center_baseline', color = '#264653')
+        plt.text(level-0.2, y-1, str(level), verticalalignment='center_baseline', color = '#264653')
 
 
     # draw a point on the line
     px = score
-    plt.plot(px,y, 'ro', ms = 15, mfc = 'r')
+    plt.plot(px,y, 'o', ms = 15, mec = '#E76F51', mfc = '#E76F51')
 
     # add a labeled arrow to point
     score_label = "Your score of " + str(score)
@@ -303,7 +303,7 @@ def plot_graph(level_list, score):
 
     plt.axis('off')
 
-    plt.annotate("test", (5,2.5), horizontalalignment='center', color ='#264653')
+    plt.annotate("test", (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,2), horizontalalignment='center', color ='#264653')
 
     # convert plot for display
     plt.savefig(img, format='png')
