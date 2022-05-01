@@ -220,7 +220,7 @@ def results_page():
 
 
 #function for rendering the results page
-def render_results_page(html_page, score, action, metric, unit):
+def render_results_page(html_page, score, action):
     #query the skillsinfo table for the row with skill_name = action
     row = skillsinfo.query.filter_by(skill_name=action).first()
     if row == NONE:
