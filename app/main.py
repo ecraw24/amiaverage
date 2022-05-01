@@ -270,7 +270,7 @@ def plot_graph(level_list, score):
     # set up the figure
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.set_xlim(level_list[0]-level_list[4]*0.1,level_list[4]+level_list[4]*0.1)
+    ax.set_xlim(level_list[0]-level_list[4]*1.2,level_list[4]+level_list[4]*1.2)
     ax.set_ylim(0,10)
 
     # horizontal line with end arrows, default to middle (5 on 0-10 canvas)
