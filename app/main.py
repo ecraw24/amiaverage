@@ -239,9 +239,11 @@ def render_results_page(html_page, score, action):
         #Superb!
         unit = row.skill_metric
         skillname = row.skill_name
+        skillverb = row.skill_verb #'press'
+        skillmetric = row.skill_metric #'lbs'
         (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
         plot_url = plot_graph([level1, level2, level3, level4, level5], int(score))
-        return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
+        return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, skillverb = skillverb, skillmetric = skillmetric, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
  
 #returns the percentile and corresponding string that the score achieved for a skill
 def get_percentile(score, list):
@@ -274,8 +276,8 @@ def plot_graph(level_list, score):
     ax.set_ylim(0,8)
     fig.set_facecolor("#E9C46A")
 
-    # horizontal line with end arrows, default to middle (5 on 0-10 canvas)
-    y = 5
+    # horizontal line with end arrows, default to middle (4 on 0-8 canvas)
+    y = 4
     height = 1
     plt.hlines(y, level_list[0]-level_list[4]*0.3, level_list[4]+level_list[4]*0.3, colors='#264653')
     plt.arrow(level_list[0]-level_list[4]*0.3, y+0.01, -1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
@@ -303,6 +305,7 @@ def plot_graph(level_list, score):
 
     plt.axis('off')
 
+    # x axis label
     plt.annotate("test", (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,2), horizontalalignment='center', color ='#264653')
 
     # convert plot for display
