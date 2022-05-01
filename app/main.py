@@ -288,7 +288,7 @@ def plot_graph(level_list, score):
         plt.vlines(level, y - height / 2., y + height / 2., colors= '#264653')
 
         # add number labels
-        plt.text(level-0.5, y-1, str(level), verticalalignment='center_baseline')
+        plt.text(level, y-1, str(level), verticalalignment='center_baseline', color = '#264653')
 
 
     # draw a point on the line
@@ -303,7 +303,7 @@ def plot_graph(level_list, score):
 
     plt.axis('off')
 
-    plt.annotate("test", (5,2.5), horizontalalignment='center')
+    plt.annotate("test", (5,2.5), horizontalalignment='center', color ='#264653')
 
     # convert plot for display
     plt.savefig(img, format='png')
