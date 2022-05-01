@@ -242,8 +242,8 @@ def render_results_page(html_page, score, action):
         skillverb = row.skill_verb #'press'
         skillmetric = row.skill_metric #'lbs'
         (percentile, level) = get_percentile(int(score), [level1, level2, level3, level4, level5])
-        plot_url = plot_graph([level1, level2, level3, level4, level5], int(score))
-        return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, skillverb = skillverb, skillmetric = skillmetric, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
+        plot_url = plot_graph([level1, level2, level3, level4, level5], int(score), skillverb, skillmetric)
+        return render_template(html_page, score=score, level=level, top_perc=100-percentile, skill_name=skillname, calc_percentile=percentile, level1=level1, level2=level2, level3=level3, level4=level4, level5=level5, plot_url=plot_url)
  
 #returns the percentile and corresponding string that the score achieved for a skill
 def get_percentile(score, list):
@@ -266,7 +266,7 @@ def get_percentile(score, list):
     return ((place * 20) + (score // (next_lvl - prev_lvl)), strings[place])
 
 # plots results image, returns bit64 string as html input
-def plot_graph(level_list, score):
+def plot_graph(level_list, score, verb, metric):
     img = BytesIO()
 
     # set up the figure
@@ -275,7 +275,7 @@ def plot_graph(level_list, score):
     ax.set_xlim(level_list[0]-level_list[4]*0.5,level_list[4]+level_list[4]*0.5)
     ax.set_ylim(0,8)
     fig.set_facecolor("#E9C46A")
-
+    
     # horizontal line with end arrows, default to middle (4 on 0-8 canvas)
     y = 4
     height = 1
@@ -306,7 +306,8 @@ def plot_graph(level_list, score):
     plt.axis('off')
 
     # x axis label
-    plt.annotate("test", (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,2), horizontalalignment='center', color ='#264653')
+    unit_label = skillverb + '(' + skillmetric + ')'
+    plt.annotate(unit_label, (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,2), horizontalalignment='center', color ='#264653')
 
     # convert plot for display
     plt.savefig(img, format='png')
