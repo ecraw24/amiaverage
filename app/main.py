@@ -292,20 +292,25 @@ def plot_graph(level_list, score, metric, unit):
         plt.text(level-0.2, y-1, str(level), verticalalignment='center_baseline', color = '#264653')
 
 
-    # draw a point on the line
-    px = score
-    plt.plot(px,y, 'o', ms = 15, mec = '#E76F51', mfc = '#E76F51')
-
-    # add a labeled arrow to point
     score_label = "Your score of " + str(score)
-    plt.annotate(score_label, (px,y), xytext = (px - 1, y + 1), 
-            arrowprops=dict(facecolor='#264653', shrink=0.1), 
-            horizontalalignment='right')
+
+    if (score > level_list[4]+level_list[4]*0.25 or score < level_list[0]-level_list[4]*0.25):
+        plt.annotate(score_label + " is off the chart!", (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,6), horizontalalignment='center', color ='#264653')
+    else:
+        # draw a point on the line
+        px = score
+        plt.plot(px,y, 'o', ms = 15, mec = '#E76F51', mfc = '#E76F51')
+
+        # add a labeled arrow to point
+        
+        plt.annotate(score_label, (px,y), xytext = (px - 1, y + 1), 
+                arrowprops=dict(facecolor='#264653', shrink=0.1), 
+                horizontalalignment='right')
 
     plt.axis('off')
 
     # x axis label
-    unit_label = metric + '(' + unit + ')'
+    unit_label = metric + ' (' + unit + ')'
     plt.annotate(unit_label, (((level_list[0]-level_list[4]*0.5)+(level_list[4]+level_list[4]*0.5))/2,2), horizontalalignment='center', color ='#264653')
 
     # convert plot for display
