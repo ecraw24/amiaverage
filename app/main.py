@@ -273,15 +273,18 @@ def plot_graph(level_list, score):
     ax.set_xlim(level_list[0]-level_list[4]*0.1,level_list[4]+level_list[4]*0.1)
     ax.set_ylim(0,10)
 
-    # horizontal line, default to middle (5 on 0-10 canvas)
+    # horizontal line with end arrows, default to middle (5 on 0-10 canvas)
     y = 5
     height = 1
     plt.hlines(y, level_list[0]-level_list[4]*0.5, level_list[4]+level_list[4]*0.5)
+    plt.arrow(level_list[0]-level_list[4]*0.5, y+0.01, -1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
+    plt.arrow(level_list[4]+level_list[4]*0.5, y+0.01, 1,0, width = 0.025, ec='#264653', fc = '#264653', head_width = 0.2)
+
 
     for level in level_list:
 
         # add vertical lines
-        plt.vlines(level, y - height / 2., y + height / 2.)
+        plt.vlines(level, y - height / 2., y + height / 2., colors= '#264653')
 
         # add number labels
         plt.text(level-0.5, y-1, str(level), verticalalignment='center_baseline')
@@ -291,12 +294,14 @@ def plot_graph(level_list, score):
     px = score
     plt.plot(px,y, 'ro', ms = 15, mfc = 'r')
 
-    # add an arrow to point
-    plt.annotate('Your score', (px,y), xytext = (px - 1, y + 1), 
-                arrowprops=dict(facecolor='black', shrink=0.1), 
-                horizontalalignment='right')
+    # add a labeled arrow to point
+    plt.annotate('Your score is: ' + score, (px,y), xytext = (px - 1, y + 1), 
+            arrowprops=dict(facecolor='#264653', shrink=0.1), 
+            horizontalalignment='right')
 
     plt.axis('off')
+
+    plt.annotate("test", (5,2.5), horizontalalignment='center')
 
     # convert plot for display
     plt.savefig(img, format='png')
