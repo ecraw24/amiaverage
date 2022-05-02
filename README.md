@@ -21,3 +21,13 @@ Admin Login : Login for developers or administrators to make changes
 
 Am I Average : Calculates relative position to the average benchmark of the given skill. Displays information to user on a graph as well as a description.
 
+<h2> Links for Final Submission </h2>
+  
+[Google Sheets Kanban Board](https://docs.google.com/spreadsheets/d/1eSt-EhDH6EDtsxILzJvH6QArXY42i7DAbiIyOCuLMRA/edit?usp=sharing)
+  
+[Version Control Repository Link](https://github.com/ecraw24/amiaverage)
+
+[Heroku Deployment Link](https://amiaverage.herokuapp.com/)
+  
+
+  
